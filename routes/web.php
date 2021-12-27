@@ -19,10 +19,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home',function(){
+    return view('home');
+});
 
 Route::resource('/article', 'ArticleController');
 
 Route::get('/admin', 'AdminController@showImportantInfo')->middleware('role:admin');
 
-// Route::get('/declaration-health', )
