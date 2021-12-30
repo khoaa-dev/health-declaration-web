@@ -13,17 +13,18 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('home');
+// });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
-Route::get('/home',function(){
-    return view('home');
-});
+Route::get('/home', 'HomeController@index')->middleware('verified');
 
-Route::resource('/article', 'ArticleController');
+
 
 Route::get('/admin', 'AdminController@showImportantInfo')->middleware('role:admin');
+
+Route::resource('/domesticGuest', 'DomesticGuestController');
+
 

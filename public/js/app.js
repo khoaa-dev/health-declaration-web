@@ -37270,6 +37270,8 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./main */ "./resources/js/main.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -37317,6 +37319,43 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/js/main.js":
+/*!******************************!*\
+  !*** ./resources/js/main.js ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var $ = document.querySelector.bind(document);
+var $$ = document.querySelectorAll.bind(document);
+var tabs = $$('.tab-item');
+var panes = $$('.tab-pane');
+var tabActive = $('.tab-item.active');
+var line = $('.tabs .line');
+line.style.left = tabActive.offsetLeft + 'px';
+line.style.width = tabActive.offsetWidth + 'px';
+tabs.forEach(function (tab, index) {
+  var pane = panes[index];
+
+  tab.onclick = function () {
+    $('.tab-item.active').classList.remove('active');
+    $('.tab-pane.active').classList.remove('active');
+    line.style.left = this.offsetLeft + 'px';
+    line.style.width = this.offsetWidth + 'px';
+    this.classList.add('active');
+    pane.classList.add('active');
+  };
+});
+var selectProvince = $('#selectProvince');
+
+selectProvince.onChange = function () {
+  var selectProvinceId = selectProvince.value; // console.log(selectProvinceId);
+
+  alert(selectProvinceId);
+};
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -37335,8 +37374,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\health-declaration-web\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\health-declaration-web\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\khoa\health-declaration-web\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\khoa\health-declaration-web\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

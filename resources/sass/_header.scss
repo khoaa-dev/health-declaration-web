@@ -1,0 +1,37 @@
+.header-wrap {
+    // -webkit-box-shadow: 0 0 16px rgb(238 61 97 / 10%);
+    box-shadow: 0 0 16px rgb(238 61 97 / 10%);
+    z-index: 1000;
+    position: relative;
+    background: #fff;
+}
+
+.header {
+    padding: 0 8px;
+    display: -moz-box;
+    display: flex;
+    -moz-box-align: center;
+    align-items: center;
+    height: 80px;
+    z-index: 1;
+    position: relative;
+}
+
+.header-menu {
+    display: contents;
+}
+
+.header-dropdown {
+    height: 40px;
+    position: relative;
+}
+
+.header-link {
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.header-dropdown .header-dropdown-menu {
+    z-index: 999999;
+}
+
