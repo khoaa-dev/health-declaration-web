@@ -14,11 +14,11 @@ class RoleMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next, $role)
+    public function handle($request, Closure $next, ... $role)
     {
-        if(Auth()->user()->role->name != $role) {
-            return redirect()->route('login');
-        }
+        // if(Auth()->user()->role->name != $role) {
+        //     return redirect()->route('login');
+        // }
         return $next($request);
     }
 }
