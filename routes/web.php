@@ -13,15 +13,15 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Auth::routes();
+// Route::get('/', function () {
+//     return view('home');
+// });
 
-Route::get('/home',function(){
-    return view('home');
-});
-Route::resource('/article', 'ArticleController');
+Auth::routes(['verify' => true]);
+
+Route::get('/home', 'HomeController@index')->middleware('verified');
+
+
 
 // Route::get('/admin', 'AdminController@showImportantInfo')->middleware('role:admin');
 
@@ -86,3 +86,6 @@ Route::get('/filter-by-date', 'AdminController@filter_by_date');
 
 // Route::get('/admin/tables-dynamic', function () {
 //     return view('admin.tables_dynamic');
+Route::resource('/domesticGuest', 'DomesticGuestController');
+
+

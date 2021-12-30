@@ -18,9 +18,9 @@ class CreateDomesticGuestDeclarationsTable extends Migration
             $table->string('idUser');
             $table->string('placeTravelTo');
             $table->string('sign');
-            $table->string('contactWithSickPerson');
-            $table->string('contactWithPeopleFromCovidCountries');
-            $table->string('contactWithPeopleHasManifestation');
+            $table->string('hasPatient');
+            $table->string('hasFromSickCountry');
+            $table->string('hasSick');
             $table->timestamps();
         });
     }
