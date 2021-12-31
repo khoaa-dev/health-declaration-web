@@ -15,6 +15,7 @@ class CreateEntryDeclarationsTable extends Migration
     {
         Schema::create('entry_declarations', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('idUser');
             $table->string('object');
             $table->integer('gateId');
             $table->string('tralvelInfor');

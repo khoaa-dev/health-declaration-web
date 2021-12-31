@@ -36,6 +36,9 @@ Route::get('/admin-logout', 'AdminController@logout');
 //
 Route::get('/filter-by-date', 'AdminController@filter_by_date');
 
+//Medical declaration
+Route::get('/medicalManagement', 'Admin\MedicalDeclarationController@index');
+
 // Route::get('/admin/form-advanced', function () {
 //     return view('admin.form_advanced');
 // });

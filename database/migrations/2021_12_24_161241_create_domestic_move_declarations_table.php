@@ -15,6 +15,7 @@ class CreateDomesticMoveDeclarationsTable extends Migration
     {
         Schema::create('domestic_move_declarations', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('idUser');
             $table->string('vehicle');
             $table->string('flightCode');
             $table->string('start');

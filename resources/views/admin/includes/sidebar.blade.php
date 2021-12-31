@@ -35,6 +35,8 @@
                 <ul class="nav side-menu">
                     <li><a><i class="fa fa-home"></i> Trang chủ</a></li>
 
+                    <li><a href="{{ URL::to('/medicalManagement') }}"><i class="fa fa-home"></i> Quản lý khai báo y tế</a></li>
+
                     <li><a><i class="fa fa-life-ring"></i> Dịch vụ <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="index.html">Danh sách dịch vụ</a></li>

@@ -25,6 +25,7 @@
     <!-- Custom Theme Style -->
     <link href="{{ asset('public/front-end/admin/build/css/custom.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    @yield('css')
     <script>
         $( function() {
           $( "#datepicker" ).datepicker();
