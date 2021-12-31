@@ -9,6 +9,8 @@
                             <img src="{{asset('public/front-end/images/cuccntn.png')}}" width="100px" height="100px">
                             {{-- <img src="{{asset('public/front-end/user/images/logo.png')}}" alt="KHAI BÁO Y TẾ"> --}}
                         </a>
+                        {{-- <a class="navbar-brand" href="index.html"><span class="flaticon-pizza-1 mr-1"></span>The Rice
+                            Bowl<br><small>Restaurant</small></a> --}}
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="toggler-icon"></span>
                             <span class="toggler-icon"></span>

@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
+// use DB;
 use App\Http\Requests;
 use Session;
 use Illuminate\Support\Facades\Redirect;
 session_start();
 use App\DeclarationStatistic;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -24,13 +25,32 @@ class AdminController extends Controller
 
     public function show_dashboard()
     {
-        return view('admin.admin-dashboard');
+        $domesticGuests = DB::table('domestic_guest_declarations')
+                                ->join('users', 'domestic_guest_declarations.idUser', '=', 'users.id')
+                                ->select('users.fullName', 'domestic_guest_declarations.created_at')
+                                ->paginate(10);
+
+        $domesticMoves = DB::table('domestic_move_declarations')
+                                ->join('users', 'domestic_move_declarations.idUser', '=', 'users.id')
+                                ->select('users.fullName', 'domestic_move_declarations.created_at')
+                                ->paginate(10);
+
+        $i1 = 0;
+        $i2 = 0;
+        $i3 = 0;
+
+        return view('admin.medicalManager')->with('domesticGuests', $domesticGuests)
+                                            ->with('domesticMoves', $domesticMoves)
+        
+                                            ->with('i1', $i1)
+                                            ->with('i2', $i2)
+                                            ->with('i3', $i3);
     }
 
     public function dashboard(Request $request)
     {
         $admin_email = $request->admin_email;
-        $admin_password = md5($request->admin_password);
+        $admin_password = $request->admin_password;
 
         $result = DB::table('admin')->where('admin_email',$admin_email)->where('admin_password',$admin_password)->first();
         if($result){

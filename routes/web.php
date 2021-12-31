@@ -39,6 +39,12 @@ Route::get('/filter-by-date', 'AdminController@filter_by_date');
 //Medical declaration
 Route::get('/medicalManagement', 'Admin\MedicalDeclarationController@index');
 
+//Account management
+Route::get('/accountManagement', 'Admin\AccountController@index');
+Route::post('/accountManagement', 'Admin\AccountController@addAccountAdmin')->name('addAccountAdmin');
+
+// Route::post('/addAccountAdmin', 'Admin\AccountController@addAccountAdmin')->name('addAccountAdmin');
+
 // Route::get('/admin/form-advanced', function () {
 //     return view('admin.form_advanced');
 // });

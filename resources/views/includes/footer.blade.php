@@ -1,7 +1,7 @@
 <footer id="footer" class="footer-area pt-120">
     <div class="container">
-        <div class="subscribe-area wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
-            <div class="row">
+        {{-- <div class="subscribe-area wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s"> --}}
+            {{-- <div class="row">
                 <div class="col-lg-6">
                     <div class="subscribe-content mt-45">
                         <h2 class="subscribe-title">Subscribe Our Newsletter <span>get reguler updates</span></h2>
@@ -15,16 +15,16 @@
                         </form>
                     </div>
                 </div>
-             </div> <!-- row -->
-        </div> <!-- subscribe area -->
+             </div> <!-- row --> --}}
+        {{-- </div> <!-- subscribe area --> --}}
         <div class="footer-widget pb-100">
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-8">
                     <div class="footer-about mt-50 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
                         <a class="logo" href="#">
-                            <img src="{{ asset('public/front-end/user/images/logo.svg') }}" alt="logo">
+                            <img src="{{ asset('public/front-end/images/cuccntn.png') }}" alt="logo" width="50px" height="50px">
                         </a>
-                        <p class="text">Lorem ipsum dolor sit amet consetetur sadipscing elitr, sederfs diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.</p>
+                        <p class="text">Vì Một Việt Nam khỏe mạnh</p>
                         <ul class="social">
                             <li><a href="#"><i class="lni-facebook-filled"></i></a></li>
                             <li><a href="#"><i class="lni-twitter-filled"></i></a></li>
@@ -36,15 +36,15 @@
                 <div class="col-lg-5 col-md-7 col-sm-7">
                     <div class="footer-link d-flex mt-50 justify-content-md-between">
                         <div class="link-wrapper wow fadeIn" data-wow-duration="1s" data-wow-delay="0.4s">
-                            <div class="footer-title">
+                            {{-- <div class="footer-title">
                                 <h4 class="title">Quick Link</h4>
-                            </div>
+                            </div> --}}
                             <ul class="link">
-                                <li><a href="#">Road Map</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Refund Policy</a></li>
-                                <li><a href="#">Terms of Service</a></li>
-                                <li><a href="#">Pricing</a></li>
+                                <li><a href="#">Đăng ký xét nghiệm Tổ chức</a></li>
+                                <li><a href="#">Đăng ký xét nghiệm cá nhân</a></li>
+                                <li><a href="#">Đăng ký xét nghiệm Nhóm/Gia đình</a></li>
+                                <li><a href="#">Xét nghiệm Cộng đồng</a></li>
+                                <li><a href="#">Tra cứu lịch sử xét nghiệm</a></li>
                             </ul>
                         </div> <!-- footer wrapper -->
                         <div class="link-wrapper wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
@@ -70,7 +70,8 @@
                             <li>+809272561823</li>
                             <li>info@gmail.com</li>
                             <li>www.yourweb.com</li>
-                            <li>123 Stree New York City , United <br> States Of America 750.</li>
+                            <li>Mã số thuế: 0316960662</li>
+                            <li>Địa chỉ: Tòa nhà PV Gas Tower 673 Nguyễn Hữu Thọ, Phước Kiển, Huyện Nhà Bè, TP. Hồ Chí Minh</li>
                         </ul>
                     </div> <!-- footer contact -->
                 </div>
@@ -81,7 +82,7 @@
                 <div class="col-lg-12">
                     <div class="copyright d-sm-flex justify-content-between">
                         <div class="copyright-content">
-                            <p class="text">Designed and Developed by <a href="https://uideck.com" rel="nofollow">UIdeck</a></p>
+                            <p class="text">Copyright by Bo Y Te</a></p>
                         </div> <!-- copyright content -->
                     </div> <!-- copyright -->
                 </div>

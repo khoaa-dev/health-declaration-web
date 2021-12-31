@@ -33,42 +33,24 @@
             <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                    <li><a><i class="fa fa-home"></i> Trang chủ</a></li>
 
                     <li><a href="{{ URL::to('/medicalManagement') }}"><i class="fa fa-home"></i> Quản lý khai báo y tế</a></li>
 
-                    <li><a><i class="fa fa-life-ring"></i> Dịch vụ <span class="fa fa-chevron-down"></span></a>
+                    <li><a href="{{ URL::to('/accountManagement') }}"><i class="fa fa-edit"></i> Quản lý tài khoản</span></a>
+                    </li>
+                    <li><a href="{{ URL::to('/statistic') }}"><i class="fa fa-bar-chart"></i> Thống kê</a></li>
+
+
+                    <li><a><i class="fa fa-life-ring"></i> Dịch vụ</span></a>
                         <ul class="nav child_menu">
                             <li><a href="index.html">Danh sách dịch vụ</a></li>
                             <li><a href="index.html">Thêm dịch vụ</a></li>
                         </ul>
                     </li>
 
-                    <li><a><i class="fa fa-bar-chart"></i> Thống kê <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="index.html">Doanh thu</a></li>
-                            <li><a href="index.html">Đơn hàng</a></li>
-                            <li><a href="index.html">Dịch vụ</a></li>
-                        </ul>
+                    <li><a><i class="fa fa-edit"></i> Quản trị giao diện</a>
                     </li>
-                    <li><a><i class="fa fa-edit"></i> Quản trị giao diện <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="{{ url('admin/form') }}" class="nav-link">Hình ảnh</a></li>
-                            <li><a href="{{ url('admin/form-advanced') }}" class="nav-link">Hỗ trợ trực tuyến</a>
-                            </li>
-                            <li><a href="{{ url('admin/form-validation') }}" class="nav-link">Thông tin</a></li>
-                            <li><a href="{{ url('admin/form-wizards') }}" class="nav-link">Nội dung khác</a></li>
-                        </ul>
-                    </li>
-                    <li><a><i class="fa fa-edit"></i> Cấu hình user <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="{{ url('admin/form') }}" class="nav-link">Hình ảnh</a></li>
-                            <li><a href="{{ url('admin/form-advanced') }}" class="nav-link">Hỗ trợ trực tuyến</a>
-                            </li>
-                            <li><a href="{{ url('admin/form-validation') }}" class="nav-link">Thông tin</a></li>
-                            <li><a href="{{ url('admin/form-wizards') }}" class="nav-link">Nội dung khác</a></li>
-                        </ul>
-                    </li>
+                    
                 </ul>
             </div>
         </div>

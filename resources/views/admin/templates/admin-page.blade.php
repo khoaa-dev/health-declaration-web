@@ -10,6 +10,12 @@
 
     <title>Gentelella Alela! | </title>
 
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     <!-- Bootstrap -->
     <link href="{{ asset('public/front-end/admin/vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Font Awesome -->
@@ -75,6 +81,7 @@
     <script src="{{ asset('public/front-end/admin/build/js/custom.min.js') }}"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
     @yield('js')
 </body>
 
