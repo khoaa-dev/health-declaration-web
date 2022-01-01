@@ -14,7 +14,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> --}}
 
     <!-- Bootstrap -->
     <link href="{{ asset('public/front-end/admin/vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -30,7 +30,7 @@
     <link href="{{ asset('public/front-end/admin/vendors/iCheck/skins/flat/green.css') }}" rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href="{{ asset('public/front-end/admin/build/css/custom.min.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    {{-- <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css"> --}}
     <link rel="stylesheet" href="{{ asset('public/front-end/fontawesome/css/all.min.css') }}">
     @yield('css')
     {{-- <script>
@@ -63,9 +63,9 @@
     </div>
 
     <!-- jQuery -->
-    <script src="{{ asset('public/front-end/admin/vendors/jquery/dist/jquery.min.js') }}"></script>
+    {{-- <script src="{{ asset('public/front-end/admin/vendors/jquery/dist/jquery.min.js') }}"></script> --}}
     <!-- Bootstrap -->
-    <script src="{{ asset('public/front-end/admin/vendors/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+    {{-- <script src="{{ asset('public/front-end/admin/vendors/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script> --}}
     <!-- FastClick -->
     {{-- <script src="{{ asset('public/front-end/admin/vendors/fastclick/lib/fastclick.js') }}"></script> --}}
     <!-- NProgress -->
@@ -80,8 +80,8 @@
 
     <!-- Custom Theme Scripts -->
     {{-- <script src="{{ asset('public/front-end/admin/build/js/custom.min.js') }}"></script> --}}
-    {{-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> --}}
+    {{-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> --}}
+    
     
     @yield('js')
 </body>

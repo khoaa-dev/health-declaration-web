@@ -28,25 +28,25 @@
     {{-- <link rel="shortcut icon" href="{{asset('public/front-end/user/images/favicon.png')}}" type="image/png"> --}}
         
     <!--====== Animate CSS ======-->
-    {{-- <link rel="stylesheet" href="{{asset('public/front-end/user/css/animate.css')}}"> --}}
+    <link rel="stylesheet" href="{{asset('public/front-end/user/css/animate.css')}}">
         
     <!--====== Magnific Popup CSS ======-->
-    {{-- <link rel="stylesheet" href="{{asset('public/front-end/user/css/magnific-popup.css')}}"> --}}
+    <link rel="stylesheet" href="{{asset('public/front-end/user/css/magnific-popup.css')}}">
         
     <!--====== Slick CSS ======-->
-    {{-- <link rel="stylesheet" href="{{asset('public/front-end/user/css/slick.css')}}"> --}}
+    <link rel="stylesheet" href="{{asset('public/front-end/user/css/slick.css')}}">
         
     <!--====== Line Icons CSS ======-->
-    {{-- <link rel="stylesheet" href="{{asset('public/front-end/user/css/LineIcons.css')}}"> --}}
+    <link rel="stylesheet" href="{{asset('public/front-end/user/css/LineIcons.css')}}">
         
     <!--====== Font Awesome CSS ======-->
-    {{-- <link rel="stylesheet" href="{{asset('public/front-end/user/css/font-awesome.min.css')}}"> --}}
+    <link rel="stylesheet" href="{{asset('public/front-end/user/css/font-awesome.min.css')}}">
         
     <!--====== Bootstrap CSS ======-->
-    {{-- <link rel="stylesheet" href="{{asset('public/front-end/user/css/bootstrap.min.css')}}"> --}}
+    <link rel="stylesheet" href="{{asset('public/front-end/user/css/bootstrap.min.css')}}">
     
     <!--====== Default CSS ======-->
-    {{-- <link rel="stylesheet" href="{{asset('public/front-end/user/css/default.css')}}"> --}}
+    <link rel="stylesheet" href="{{asset('public/front-end/user/css/default.css')}}">
 
     <!--====== Style CSS ======-->
     <link rel="stylesheet" href="{{asset('public/front-end/user/css/style.css')}}">
@@ -110,9 +110,9 @@
     <!--====== Main js ======-->
     {{-- <script src="{{asset('public/front-end/user/js/main.js')}}"></script> --}}
 
-    {{-- <script src="{{asset('public/front-end/footer/js/jquery-3.3.1.min.js')}}"></script>
-    <script src="{{asset('public/front-end/footer/js/popper.min.js')}}"></script>
-    <script src="{{asset('public/front-end/footer/js/bootstrap.min.js')}}"></script> --}}
+    {{-- <script src="{{asset('public/front-end/footer/js/jquery-3.3.1.min.js')}}"></script> --}}
+    {{-- <script src="{{asset('public/front-end/footer/js/popper.min.js')}}"></script> --}}
+    {{-- <script src="{{asset('public/front-end/footer/js/bootstrap.min.js')}}"></script> --}}
     @yield('js')
 </body>
 </html>

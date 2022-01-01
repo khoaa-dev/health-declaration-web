@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\DeclarationStatistic as AppDeclarationStatistic;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 use App\Models\DeclarationStatistic;
 use App\Models\PersonStatistic;
+use Carbon\Carbon;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Session;
@@ -86,12 +87,9 @@ class AdminController extends Controller
         return view('admin.statistic');
     }
 
-    public function filter_by_date(Request $request){
-        // $data = $request->all();
-        $from_date = $request->from_date;
-        $to_date = $request->to_date;
-        // $from_date = $data['from_date'];
-        // $to_date = $data['to_date'];
+    public function filter_by_date3(Request $request){
+        $from_date = Carbon::createFromFormat('m/d/Y', $request->from_date)->format('Y-m-d');
+        $to_date = Carbon::createFromFormat('m/d/Y', $request->to_date)->format('Y-m-d');
 
         // $gets = DeclarationStatistic::all();
         $gets = DeclarationStatistic::whereBetween('ngay',[$from_date, $to_date])->orderBy('ngay','ASC')->get();
@@ -107,10 +105,14 @@ class AdminController extends Controller
         return json_encode($chart_data);
     }
     public function filter_by_date1(Request $request){
-        $from_date = $request->from_date;
-        $to_date = $request->to_date;
+        // $from_date = $request->from_date;
+        $from_date = Carbon::createFromFormat('m/d/Y', $request->from_date)->format('Y-m-d');
+        $to_date = Carbon::createFromFormat('m/d/Y', $request->to_date)->format('Y-m-d');
+        // $to_date = $request->to_date;
 
         $gets = PersonStatistic::whereBetween('ngay',[$from_date, $to_date])->orderBy('ngay','ASC')->get();
+        // $gets = PersonStatistic::all();
+
         $chart_data = new Collection();
         foreach($gets as $get){
             $chart_data->push([
@@ -128,31 +130,31 @@ class AdminController extends Controller
     }
 
     public function action(Request $request){
-        if($request->ajax()){
-            $query = $request->get('query');
-            if($query != ''){
-                $domesticGuests = DB::table('domestic_guest_declarations')
-                                ->join('users', 'domestic_guest_declarations.idUser', '=', 'users.id')
-                                ->where('fullName','like','%'.$query.'%')
-                                ->orderBy('created_at', 'desc')
-                                ->paginate(10);
-            }
-            else{
-                $domesticGuests = DB::table('domestic_guest_declarations')
-                                ->join('users', 'domestic_guest_declarations.idUser', '=', 'users.id')
-                                ->select('users.fullName', 'domestic_guest_declarations.created_at')
-                                ->orderBy('created_at', 'desc')
-                                ->paginate(10);
-            }
-            $total_row = $data->count();
-            if($total_row > 0){
-                foreach($data as $row){
-                    $output .= '
-                    <tr>
-                        <td></td>
-                    </tr>';
-                }
-            }
-        }
+        // if($request->ajax()){
+        //     $query = $request->get('query');
+        //     if($query != ''){
+        //         $domesticGuests = DB::table('domestic_guest_declarations')
+        //                         ->join('users', 'domestic_guest_declarations.idUser', '=', 'users.id')
+        //                         ->where('fullName','like','%'.$query.'%')
+        //                         ->orderBy('created_at', 'desc')
+        //                         ->paginate(10);
+        //     }
+        //     else{
+        //         $domesticGuests = DB::table('domestic_guest_declarations')
+        //                         ->join('users', 'domestic_guest_declarations.idUser', '=', 'users.id')
+        //                         ->select('users.fullName', 'domestic_guest_declarations.created_at')
+        //                         ->orderBy('created_at', 'desc')
+        //                         ->paginate(10);
+        //     }
+        //     $total_row = $data->count();
+        //     if($total_row > 0){
+        //         foreach($data as $row){
+        //             $output .= '
+        //             <tr>
+        //                 <td></td>
+        //             </tr>';
+        //         }
+        //     }
+        // }
     }
 }

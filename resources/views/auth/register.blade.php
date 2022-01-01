@@ -1,5 +1,32 @@
 @extends('layouts.app')
 
+@section('css')
+	 <!--===============================================================================================-->	
+	 <link rel="icon" type="image/png" href="{{ asset('public/front-end/login/images/icons/favicon.ico') }}"/>
+	 <!--===============================================================================================-->
+		 <link rel="stylesheet" type="text/css" href="{{asset('public/front-end/login/vendor/bootstrap/css/bootstrap.min.css')}}">
+	 <!--===============================================================================================-->
+		 <link rel="stylesheet" type="text/css" href="{{asset('public/front-end/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+	 <!--===============================================================================================-->
+		 <link rel="stylesheet" type="text/css" href="{{asset('public/front-end/login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css')}}">
+	 <!--===============================================================================================-->
+		 <link rel="stylesheet" type="text/css" href="{{asset('public/front-end/login/vendor/animate/animate.css')}}">
+	 <!--===============================================================================================-->	
+		 <link rel="stylesheet" type="text/css" href="{{asset('public/front-end/login/vendor/css-hamburgers/hamburgers.min.css')}}">
+	 <!--===============================================================================================-->
+		 <link rel="stylesheet" type="text/css" href="{{asset('public/front-end/login/vendor/animsition/css/animsition.min.css')}}">
+	 <!--===============================================================================================-->
+		 <link rel="stylesheet" type="text/css" href="{{asset('public/front-end/login/vendor/select2/select2.min.css')}}">
+	 <!--===============================================================================================-->	
+		 <link rel="stylesheet" type="text/css" href="{{asset('public/front-end/login/vendor/daterangepicker/daterangepicker.css')}}">
+	 <!--===============================================================================================-->
+		 <link rel="stylesheet" type="text/css" href="{{asset('public/front-end/login/css/util.css')}}">
+		 <link rel="stylesheet" type="text/css" href="{{asset('public/front-end/login/css/main.css')}}">
+	 <!--===============================================================================================-->
+ 
+	 
+@endsection
+
 @section('content')
 {{-- <div class="container">
     <div class="row justify-content-center">
@@ -149,4 +176,24 @@
 		</div>
 	</div>
 </div>
+@endsection
+
+@section('js')
+	<!--===============================================================================================-->
+	<script src="{{asset('public/front-end/login/vendor/jquery/jquery-3.2.1.min.js')}}"></script>
+    <!--===============================================================================================-->
+        <script src="{{asset('public/front-end/login/vendor/animsition/js/animsition.min.js')}}"></script>
+    <!--===============================================================================================-->
+        <script src="{{asset('public/front-end/login/vendor/bootstrap/js/popper.js')}}"></script>
+        <script src="{{asset('public/front-end/login/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+    <!--===============================================================================================-->
+        <script src="{{asset('public/front-end/login/vendor/select2/select2.min.js')}}"></script>
+    <!--===============================================================================================-->
+        <script src="{{asset('public/front-end/login/vendor/daterangepicker/moment.min.js')}}"></script>
+        <script src="{{asset('public/front-end/login/vendor/daterangepicker/daterangepicker.js')}}"></script>
+    <!--===============================================================================================-->
+        <script src="{{asset('public/front-end/login/vendor/countdowntime/countdowntime.js')}}"></script>
+    <!--===============================================================================================-->
+        <script src="{{asset('public/front-end/login/js/main.js')}}"></script>
+
 @endsection

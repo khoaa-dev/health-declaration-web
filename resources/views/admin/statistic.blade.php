@@ -10,7 +10,7 @@
     <!-- bootstrap-daterangepicker -->
     <link href="{{ asset('public/front-end/admin/vendors/bootstrap-daterangepicker/daterangepicker.css') }}"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"/>
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"/> --}}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
 @endsection
@@ -21,19 +21,20 @@
         <!-- top tiles -->
         <div class="col-md-12" style="display: inline-block;">
             <div class="tile_count">
+                {{-- <div class="col-md-3 col-sm-4  tile_stats_count"> --}}
+                    {{-- <span class="count_top" style="font-size: 16px"> Số người truy cập</span>
+                    <div class="count">25</div> --}}
+                    {{-- <span class="count_bottom"><i class="green">4% </i> hôm qua</span> --}}
+                {{-- </div> --}}
                 <div class="col-md-3 col-sm-4  tile_stats_count">
-                    <span class="count_top"><i class="fa fa-user"></i> Số người truy cập</span>
-                    <div class="count">25</div>
-                    <span class="count_bottom"><i class="green">4% </i> hôm qua</span>
+                    <span class="count_top" style="font-size: 16px"> Cán bộ quản lý</span>
+                    <div class="count">2</div>
+                    <span class="count_bottom"><i class="green">3% </i> hôm qua</span>
                 </div>
                 <div class="col-md-3 col-sm-4  tile_stats_count">
-                    <span class="count_top"><i class="fa fa-clock-o"></i> Cán bộ quản lý</span>
-                    <div class="count">5</div>
-                    <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>3% </i> hôm qua</span>
-                </div>
-                <div class="col-md-3 col-sm-4  tile_stats_count">
-                    <span class="count_top"><i class="fa fa-user"></i> Người dùng</span>
-                    <div class="count green">
+                    <span class="count_top" style="font-size: 16px">Số lượng người dùng</span>
+                    
+                    <div class="count">
                         <?php
                             $countUser = Session::get('countUser');
                             if($countUser){
@@ -41,13 +42,13 @@
                             }
 					    ?>
                     </div>
-                    <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> hôm
+                    <span class="count_bottom"><i class="green">34% </i> hôm
                         qua</span>
                 </div>
                 <div class="col-md-3 col-sm-4  tile_stats_count">
-                    <span class="count_top"><i class="fa fa-user"></i> Đã khai báo</span>
+                    <span class="count_top" style="font-size: 16px"> Đã khai báo</span>
                     <div class="count">67</div>
-                    <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i> hôm
+                    <span class="count_bottom"><i class="red">12% </i> hôm
                         qua</span>
                 </div>
             </div>
@@ -69,8 +70,8 @@
                     <div class="col-md-2">
                         <p>Đến ngày:</p> <input type="text" id="datepicker2" class="date form-control">
                     </div>
-                    <div class="col-md-2">
-                        <input type="button" id="btn-dashboard-filter" class="btn btn-primary btn-sm mt-3" value="Lọc kết quả" name="to_date">
+                    <div class="col-md-2 pt-4">
+                        <input type="button" id="btn-dashboard-filter" class="btn btn-primary btn-sm p-2" value="Lọc kết quả" name="to_date" style="margin-top: 10px; padding-left: 5px; padding-right: 5px">
                     </div>
                     <div class="col-md-12">
                         <div id="chart" style="height: 250px;"></div>
@@ -98,67 +99,11 @@
 
 
 @section('js')
-    <script type="text/javascript">
-        $('#datepicker').datepicker({  
-            dateFormat: 'yy-mm-dd'
-        });  
-        $('#datepicker2').datepicker({  
-            dateFormat: 'yy-mm-dd'
-        });  
-    </script> 
-    <script type="text/javascript">
-
-        $(document).ready(function(){
-            var chart = new Morris.Bar({
-            // ID of the element in which to draw the chart.
-            element: 'chart',
-            lineColors: ['#819C79', '#fc8710', '#FF6541'],
-            parseTime: false,
-            hideHover: 'auto',
-            xkey: 'ngay',
-            ykeys: ['sl_diChuyenNoiDia', 'sl_nguoiNhapCanh', 'sl_khaiBaoToanDan'],
-            labels: ['Di chuyển nội địa', 'Người nhập cảnh', 'Khai báo toàn dân']
-            });
-
-            var chart1 = new Morris.Area({
-            // ID of the element in which to draw the chart.
-            element: 'chart1',
-            lineColors: ['#104E8B', '#1C86EE'],
-            parseTime: false,
-            hideHover: 'auto',
-            xkey: 'ngay',
-            ykeys: ['sl_nguoiCoDauHieu', 'sl_nguoiKhongCo'],
-            labels: ['Người có biểu hiện (Sốt, ho,...)', 'Người không có biểu hiện (Sốt, ho,...)']
-            });
-
-            $('#btn-dashboard-filter').click(function(){
-            var _token = $('input[name="_token"]').val();
-            var from_date = $('#datepicker').val();
-            var to_date = $('#datepicker2').val();
-            $.ajax({
-                url:"{{URL::to('/filter-by-date')}}",
-                method:"POST",
-                dataType:"JSON",
-                data:{from_date:from_date, to_date:to_date, _token:_token},
-                success:function(data){
-                    chart.setData(data);
-                }
-            });
-            $.ajax({
-                url:"{{URL::to('/filter-by-date1')}}",
-                method:"POST",
-                dataType:"JSON",
-                data:{from_date:from_date, to_date:to_date, _token:_token},
-                success:function(data){
-                    chart1.setData(data);
-                }
-            });
-        });
-        });
-
-        
-    </script>
-
+    
+    {{-- jQuery --}}
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
     <!-- Chart.js -->
     <script src="{{ asset('public/front-end/admin/vendors/Chart.js/dist/Chart.min.js') }}"></script>
     <!-- gauge.js -->
@@ -185,10 +130,83 @@
     <script src="{{ asset('public/front-end/admin/vendors/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
     <script src="{{ asset('public/front-end/admin/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js') }}"></script>
     <!-- bootstrap-daterangepicker -->
-    <script src="{{ asset('public/front-end/admin/vendors/moment/min/moment.min.js') }}"></script>
-    <script src="{{ asset('public/front-end/admin/vendors/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="{{ asset('public/front-end/admin/vendors/moment/min/moment.min.js') }}">
+        
+    </script>
+    <script src="{{ asset('public/front-end/admin/vendors/bootstrap-daterangepicker/daterangepicker.js') }}">
+        
+    </script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+
+    <script type="text/javascript">
+        $('#datepicker').datepicker({  
+            dateFormat: 'yy-mm-dd'
+        });  
+        $('#datepicker2').datepicker({  
+            dateFormat: 'yy-mm-dd'
+        });  
+    </script>
+     
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+            var chart = new Morris.Bar({
+                // ID of the element in which to draw the chart.
+                element: 'chart',
+                lineColors: ['#819C79', '#fc8710', '#FF6541'],
+                parseTime: false,
+                hideHover: 'auto',
+                xkey: 'ngay',
+                ykeys: ['sl_diChuyenNoiDia', 'sl_nguoiNhapCanh', 'sl_khaiBaoToanDan'],
+                labels: ['Di chuyển nội địa', 'Người nhập cảnh', 'Khai báo toàn dân'],
+                data: {
+
+                }
+            });
+
+            var chart1 = new Morris.Area({
+                // ID of the element in which to draw the chart.
+                element: 'chart1',
+                lineColors: ['#104E8B', '#1C86EE'],
+                parseTime: false,
+                hideHover: 'auto',
+                xkey: 'ngay',
+                ykeys: ['sl_nguoiCoDauHieu', 'sl_nguoiKhongCo'],
+                labels: ['Người có biểu hiện (Sốt, ho,...)', 'Người không có biểu hiện (Sốt, ho,...)']
+            });
+
+            $('#btn-dashboard-filter').click(function(){
+                var _token = $('input[name="_token"]').val();
+                var from_date = $('#datepicker').val();
+                var to_date = $('#datepicker2').val();
+                $.ajax({
+                    url:"{{URL::to('/filter-by-date3')}}",
+                    method:"POST",
+                    dataType:"JSON",
+                    cache: false,
+                    data:{from_date:from_date, to_date:to_date, _token:_token},
+                    success:function(data){
+                        chart.setData(data);
+                    }
+                });
+                $.ajax({
+                    url:"{{URL::to('/filter-by-date1')}}",
+                    method:"POST",
+                    dataType:"JSON",
+                    cache: false,
+                    data:{from_date:from_date, to_date:to_date, _token:_token},
+                    success:function(data){
+                        chart1.setData(data);
+                    }
+                });
+        });
+        });
+
+        
+    </script>
+
+    
 @endsection

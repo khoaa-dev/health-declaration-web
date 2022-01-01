@@ -221,7 +221,7 @@
                     
                 </li>
                 <li class="nav-item">
-                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                    <a class="dropdown-item" href="{{ URL::to('/login') }}" onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
                             {{ __('Đăng xuất') }}
                         </a>

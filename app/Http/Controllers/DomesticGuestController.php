@@ -7,6 +7,7 @@ use App\Models\DomesticGuestDeclaration;
 use App\User;
 use Illuminate\Support\Facades\DB;
 use App\Rules\Captcha;
+use Carbon\Carbon;
 use Illuminate\Contracts\Validation\Validator as ValidationValidator;
 use Illuminate\Support\Facades\Validator;
 
@@ -116,9 +117,11 @@ class DomesticGuestController extends Controller
         $domesticGuest->hasPatient = $hasPatient;
         $domesticGuest->hasFromSickCountry = $hasFromSickCountry;
         $domesticGuest->hasSick = $hasSick;
+        $domesticGuest->created_at = Carbon::now()->format('Y-m-d H:i:s');
+        $domesticGuest->updated_at = Carbon::now()->format('Y-m-d H:i:s');
         $domesticGuest->save();
         
-        return redirect('announ');
+        return redirect()->route('announ');
 
     }
 

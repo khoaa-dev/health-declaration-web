@@ -19,7 +19,11 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes(['verify' => true]);
 
-Route::get('/home', 'HomeController@index')->middleware('verified');
+Route::get('/home', 'HomeController@index')->middleware('verified')->name('home');
+
+Route::get('/announ', function() {
+    return view('announ');
+})->name('announ');
 
 
 
@@ -34,7 +38,7 @@ Route::post('/admin-dashboard','AdminController@dashboard');
 //admin logout
 Route::get('/admin-logout', 'AdminController@logout');
 //
-Route::post('/filter-by-date', 'AdminController@filter_by_date');
+Route::post('/filter-by-date3', 'AdminController@filter_by_date3');
 Route::post('/filter-by-date1', 'AdminController@filter_by_date1');
 
 //Medical declaration

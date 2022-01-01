@@ -126,7 +126,7 @@
                             </table>
 
                             <div class="d-flex justify-content-center">
-                                {{-- {{ $domesticGuests->links() }} --}}
+                                {{ $accountUsers->links() }}
                             </div>
                         </div>
         
@@ -274,7 +274,7 @@
                                             <td class=" ">{{ $accountAdmin->created_at }}</td>
                                             <td class=" last"><button class="btn btn-warning" href="#">Sửa</button>
                                                 <button class="btn btn-danger"
-                                                onclick="window.location.href = '{{ URL::to('/accountManagement/' .$accountAdmin->admin_id)}}' ">Xóa</button></td>
+                                                onclick="window.location.href = '{{ URL::to('/accountManagement/' .$accountAdmin->id)}}' ">Xóa</button></td>
                                         </tr>
                                     @endforeach
                                     

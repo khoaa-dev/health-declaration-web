@@ -10,5 +10,5 @@ class DeclarationStatistic extends Model
     protected $fillable = 
     ['sl_diChuyenNoiDia', 'sl_nguoiNhapCanh', 'sl_khaiBaoToanDan', 'ngay'];
     protected $primaryKey = 'id';
-    protected $table = 'statistic_declaration';
+    protected $table = 'statistic_declarations';
 }

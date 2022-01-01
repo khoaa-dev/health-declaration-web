@@ -13,10 +13,10 @@ class AccountController extends Controller
     public function index() {
         // $domesticGuests = DomesticGuestDeclaration::panigate(10);
         $accountUsers = DB::table('users')
-                                ->select('fullName', 'email', 'created_at')->get();
+                                ->select('fullName', 'email', 'created_at')->paginate(10);
 
         $accountAdmins = DB::table('admin')
-                                ->select('admin_id', 'admin_name', 'admin_email', 'created_at')->get();
+                                ->select('id', 'admin_name', 'admin_email', 'created_at')->get();
 
         $i1 = 0;
         $i2 = 0;
@@ -41,7 +41,7 @@ class AccountController extends Controller
     }
 
     public function deleteAccountAdmin($id) {
-        DB::table('admin')->where('admin_id', $id)->delete();
+        DB::table('admin')->where('id', $id)->delete();
         return redirect()->route('accountManagement');
     }
 }

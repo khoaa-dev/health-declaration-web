@@ -1151,7 +1151,6 @@
                                             <select id="input11008" name="nationalityId" style="width: 100%" class="form-control select2-hidden-accessible" data-msg-required="Bạn chưa chọn quốc tịch" data-select2-id="input11008" tabindex="-1" aria-hidden="true">
                                             
                                                 <option value="">Chọn</option>
-                                                <option value="5b0ec228e138230cb0072f82" selected="selected" data-select2-id="18">Việt Nam</option>
                                                 @foreach ($nationalities as $nationality)
                                                     <option value="{{ $nationality->id }}">{{ $nationality->name }}</option>
                                                 @endforeach
