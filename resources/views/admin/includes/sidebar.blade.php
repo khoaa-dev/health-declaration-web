@@ -13,15 +13,15 @@
                     class="img-circle profile_img">
             </div>
             <div class="profile_info">
-                <span>Xin chào,</span>
-                <h2>
+                <span style="font-size: 16px">Xin chào,</span>
+                <p style="font-size: 14px">
                     <?php
                             $name = Session::get('admin_name');
                             if($name){
                                 echo $name;
                             }
 					    ?>
-                </h2>
+                </p>
             </div>
         </div>
         <!-- /menu profile quick info -->
@@ -31,24 +31,21 @@
         <!-- sidebar menu -->
         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
             <div class="menu_section">
-                <h3>General</h3>
                 <ul class="nav side-menu">
 
-                    <li><a href="{{ URL::to('/medicalManagement') }}"><i class="fa fa-home"></i> Quản lý khai báo y tế</a></li>
+                    <li><a style="font-size: 16px" href="{{ URL::to('/medicalManagement') }}"><i class="fa fa-home"></i> Quản lý khai báo y tế</a></li>
 
-                    <li><a href="{{ URL::to('/accountManagement') }}"><i class="fa fa-edit"></i> Quản lý tài khoản</span></a>
+                    <li><a style="font-size: 16px" href="{{ URL::to('/accountManagement') }}"><i class="fa fa-edit"></i> Quản lý tài khoản</span></a>
                     </li>
-                    <li><a href="{{ URL::to('/statistic') }}"><i class="fa fa-bar-chart"></i> Thống kê</a></li>
+                    <li><a style="font-size: 16px" href="{{ route('statistic') }}"><i class="fa fa-bar-chart"></i> Thống kê</a></li>
 
-
-                    <li><a><i class="fa fa-life-ring"></i> Dịch vụ</span></a>
+                    <li><a style="font-size: 16px" ><i class="fa fa-life-ring"></i> Dịch vụ</span></a>
                         <ul class="nav child_menu">
                             <li><a href="index.html">Danh sách dịch vụ</a></li>
                             <li><a href="index.html">Thêm dịch vụ</a></li>
                         </ul>
                     </li>
-
-                    <li><a><i class="fa fa-edit"></i> Quản trị giao diện</a>
+                    <li><a style="font-size: 16px"><i class="fa fa-edit"></i> Quản trị giao diện</a>
                     </li>
                     
                 </ul>

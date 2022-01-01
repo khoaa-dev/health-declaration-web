@@ -1,7 +1,7 @@
 <!-- footer content -->
 <footer>
     <div class="pull-right">
-        Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+        Copyright © 2021 Website quản lý khai báo y tế
     </div>
     <div class="clearfix"></div>
 </footer>

@@ -55,7 +55,7 @@
             <!-- /page content -->
 
             <!-- footer content -->
-            {{-- @include('admin.includes.footer') --}}
+            @include('admin.includes.footer')
 
             <!-- /footer content -->
         </div>

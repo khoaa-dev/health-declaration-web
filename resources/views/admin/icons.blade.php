@@ -54,9 +54,6 @@
                                 <h2 class="page-header">Web Application Icons</h2>
 
                                 <div class="row fontawesome-icon-list">
-
-
-
                                     <div class="fa-hover col-md-3 col-sm-4  "><a href="#/adjust"><i
                                                 class="fa fa-adjust"></i> fa-adjust</a>
                                     </div>

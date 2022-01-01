@@ -31,19 +31,26 @@ class AdminController extends Controller
         $domesticGuests = DB::table('domestic_guest_declarations')
                                 ->join('users', 'domestic_guest_declarations.idUser', '=', 'users.id')
                                 ->select('users.fullName', 'domestic_guest_declarations.created_at')
+                                ->orderBy('created_at', 'desc')
                                 ->paginate(10);
 
         $domesticMoves = DB::table('domestic_move_declarations')
                                 ->join('users', 'domestic_move_declarations.idUser', '=', 'users.id')
                                 ->select('users.fullName', 'domestic_move_declarations.created_at')
+                                ->orderBy('created_at', 'desc')
                                 ->paginate(10);
-
+        $entrys = DB::table('entry_declarations')
+                                ->join('users', 'entry_declarations.idUser', '=', 'users.id')
+                                ->select('users.fullName', 'entry_declarations.created_at')
+                                ->orderBy('created_at', 'desc')
+                                ->paginate(10);
         $i1 = 0;
         $i2 = 0;
         $i3 = 0;
 
         return view('admin.medicalManager')->with('domesticGuests', $domesticGuests)
                                             ->with('domesticMoves', $domesticMoves)
+                                            ->with('entrys', $entrys)
         
                                             ->with('i1', $i1)
                                             ->with('i2', $i2)
@@ -53,12 +60,12 @@ class AdminController extends Controller
     public function dashboard(Request $request)
     {
         $admin_email = $request->admin_email;
-        $admin_password = $request->admin_password;
+        $admin_password = md5($request->admin_password);
 
         $result = DB::table('admin')->where('admin_email',$admin_email)->where('admin_password',$admin_password)->first();
         if($result){
             Session::put('admin_name',$result->admin_name);
-            Session::put('admin_id',$result->admin_id);
+            Session::put('id',$result->id);
             Session::put('countUser', 12);
             return Redirect::to('/dashboard');
         }else{
@@ -70,8 +77,13 @@ class AdminController extends Controller
     public function logout()
     {
         Session::put('admin_name',null);
-        Session::put('admin_id',null);
+        Session::put('id',null);
         return Redirect::to('/admin-login');
+    }
+
+    public function show_statistic()
+    {
+        return view('admin.statistic');
     }
 
     public function filter_by_date(Request $request){
@@ -108,5 +120,39 @@ class AdminController extends Controller
             ]);
         }
         return json_encode($chart_data);
+    }
+
+    public function getSeach()
+    {
+        return view('admin.medicalManager');
+    }
+
+    public function action(Request $request){
+        if($request->ajax()){
+            $query = $request->get('query');
+            if($query != ''){
+                $domesticGuests = DB::table('domestic_guest_declarations')
+                                ->join('users', 'domestic_guest_declarations.idUser', '=', 'users.id')
+                                ->where('fullName','like','%'.$query.'%')
+                                ->orderBy('created_at', 'desc')
+                                ->paginate(10);
+            }
+            else{
+                $domesticGuests = DB::table('domestic_guest_declarations')
+                                ->join('users', 'domestic_guest_declarations.idUser', '=', 'users.id')
+                                ->select('users.fullName', 'domestic_guest_declarations.created_at')
+                                ->orderBy('created_at', 'desc')
+                                ->paginate(10);
+            }
+            $total_row = $data->count();
+            if($total_row > 0){
+                foreach($data as $row){
+                    $output .= '
+                    <tr>
+                        <td></td>
+                    </tr>';
+                }
+            }
+        }
     }
 }

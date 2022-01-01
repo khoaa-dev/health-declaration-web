@@ -10,5 +10,5 @@ class PersonStatistic extends Model
     protected $fillable = 
     ['sl_nguoiCoDauHieu', 'sl_nguoiKhongCo', 'ngay'];
     protected $primaryKey = 'id';
-    protected $table = 'statistic_persons';
+    protected $table = 'statistic_person';
 }

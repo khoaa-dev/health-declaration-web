@@ -19,7 +19,7 @@
         .tab-item {
             /* min-width: 80px; */
             padding: 16px 20px 11px 20px;
-            font-size: 20px;
+            font-size: 18px;
             text-align: center;
             color: #c23564;
             background-color: #fff;
@@ -67,7 +67,6 @@
 @section('content')
 <div class="right_col" role="main" style="min-height: 1000px">
     <div class="col-md-12">
-        <h1 class="text-center mtb-20 w-100">Tờ khai y tế/Vietnam Health Declaration</h1><br>
         <ul class="nav nav-tabs nav-tab tabs d-flex text-center col-12" style="background: #eaeaea"> 
             <li class="tab-item active col-4"><a data-toggle="tab" href="#tab-9-3" data-case="HDLocal">Khai báo di chuyển nội địa<br>For domestic move declaration</a></li>
             <li class="tab-item col-4"><a data-toggle="tab" href="#tab-9-1" data-case="HDPassenger">Khai báo cho người nhập cảnh<br>Entry declaration</a></li>
@@ -79,23 +78,23 @@
     <div class="col-md-12">
         <div class="tab-pane active">
             <div class="row d-flex flex-row-reverse m-3">
-                <div class="searh-box ">
-                    <label for="search" class="mr-1" style="font-size: 20px">Nhập tên: </label>
-                    <input type="text" name="search" id="search" class="" style="font-size: 20px">
-                    <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+                <div class="searh-box d-flex">
+                    <label for="search" class="mr-1" style="font-size: 16px !important; margin-top:10px">Nhập tên: </label>
+                    <input type="text" name="search" id="search_name" class="" style="font-size: 16px; border: 1px solid #e7e7e7; border-radius: 8px; padding-inline-start: 10px">
+                    <button type="submit" class="btn btn-primary" style="margin-left: 10px; margin-top: 5px">Tìm kiếm</button>
                 </div>
             </div>
             <div class="row">
                 <div class="x_panel">
                     <div class="p-2">
-                        <h2>Danh sách đơn khai báo</h2>
+                        <p style="color: #00256b; font-weight: 700; font-size: 21px">Danh sách các đơn khai báo</p>
                     </div>
         
                     <div class="x_content">
                         <div class="table-responsive">
                             <table class="table table-striped jambo_table bulk_action" >
                                 <thead>
-                                    <tr class="headings text-center" style="font-size: 20px">
+                                    <tr class="headings text-center" style="font-size: 18px">
                                         <th class="column-title" style="width: 10%">STT </th>
                                         <th class="column-title" style="width: 30%">Họ và tên </th>
                                         <th class="column-title" style="width: 30%">Ngày khai báo </th>
@@ -104,7 +103,6 @@
                                 </thead>
         
                                 <tbody class="text-center" style="font-size: 16px">
-                                    
                                     @foreach ($domesticGuests as $domesticGuest)
                                         <tr class="even pointer">
                                             <td class=" ">{{ ++$i1 }}</td>
@@ -131,10 +129,10 @@
 
         <div class="tab-pane">
             <div class="row d-flex flex-row-reverse m-3">
-                <div class="searh-box ">
-                    <label for="search" class="mr-1" style="font-size: 20px">Nhập tên: </label>
-                    <input type="text" name="search" id="search" class="" style="font-size: 20px">
-                    <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+                <div class="searh-box d-flex">
+                    <label for="search" class="mr-1" style="font-size: 16px !important; margin-top:10px">Nhập tên: </label>
+                    <input type="text" name="search" id="search" class="" style="font-size: 16px; border: 1px solid #e7e7e7; border-radius: 8px; padding-inline-start: 10px">
+                    <button type="submit" class="btn btn-primary" style="margin-left: 10px; margin-top: 5px">Tìm kiếm</button>
                 </div>
             </div>
             <div class="row">
@@ -157,11 +155,11 @@
         
                                 <tbody class="text-center" style="font-size: 16px">
                                     
-                                    @foreach ($domesticMoves as $domesticMove)
+                                    @foreach ($entrys as $entry)
                                         <tr class="even pointer">
                                             <td class=" ">{{ ++$i2 }}</td>
-                                            <td class=" ">{{ $domesticMove->fullName }}</td>
-                                            <td class=" ">{{ $domesticMove->created_at }}</td>
+                                            <td class=" ">{{ $entry->fullName }}</td>
+                                            <td class=" ">{{ $entry->created_at }}</td>
                                             <td class=" last"><a href="#">Xem chi tiết</a>
                                             </td>
                                         </tr>
@@ -171,7 +169,7 @@
                             </table>
 
                             <div class="d-flex justify-content-center">
-                                {{ $domesticGuests->links() }}
+                                {{ $entrys->links() }}
                             </div>
                         </div>
         
@@ -183,10 +181,10 @@
 
         <div class="tab-pane">
             <div class="row d-flex flex-row-reverse m-3">
-                <div class="searh-box ">
-                    <label for="search" class="mr-1" style="font-size: 20px">Nhập tên: </label>
-                    <input type="text" name="search" id="search" class="" style="font-size: 20px">
-                    <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+                <div class="searh-box d-flex">
+                    <label for="search" class="mr-1" style="font-size: 16px !important; margin-top:10px">Nhập tên: </label>
+                    <input type="text" name="search" id="search" class="" style="font-size: 16px; border: 1px solid #e7e7e7; border-radius: 8px; padding-inline-start: 10px">
+                    <button type="submit" class="btn btn-primary" style="margin-left: 10px; margin-top: 5px">Tìm kiếm</button>
                 </div>
             </div>
             <div class="row">
@@ -207,7 +205,7 @@
                                     </tr>
                                 </thead>
         
-                                <tbody class="text-center" style="font-size: 16px">
+                                <tbody id="domesticGuests" class="text-center" style="font-size: 16px">
                                     
                                     @foreach ($domesticGuests as $domesticGuest)
                                         <tr class="even pointer">
@@ -266,6 +264,22 @@
         }
     });
 
+</script>
+<script>
+    $(document).ready(function () {
+        function fetch_customer_data(query = '
+            $.ajax({
+                url:"{{route('search')}}",
+                method:"GET",
+                data:{query:query},
+                dataType:"JSON",
+                success:function(data){
+                    $('tbody').html(data.table_data);
+                }
+            });
+         }
+    });
+   }
 </script>
 @endsection
 
