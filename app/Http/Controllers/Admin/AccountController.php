@@ -16,7 +16,7 @@ class AccountController extends Controller
                                 ->select('fullName', 'email', 'created_at')->get();
 
         $accountAdmins = DB::table('admin')
-                                ->select('admin_name', 'admin_email', 'created_at')->get();
+                                ->select('admin_id', 'admin_name', 'admin_email', 'created_at')->get();
 
         $i1 = 0;
         $i2 = 0;
@@ -35,35 +35,13 @@ class AccountController extends Controller
         $admin->admin_phone = $request->admin_phone;
         $admin->save();
 
-        // $admin = Admin::created([
-        //     'admin_name' => $request['name'],
-        //     'admin_email' => $request['email'],
-        //     'admin_phone' => $request['admin_phone'],
-        //     'admin_password' => Hash::make($request['password']),
-        // ]);
-
-        // $admin->save();
-
-        $admins = DB::table('admin')
-            ->select('admin_name', 'admin_email', 'created_at')->get();
-
-        $data = '';
-        $i = 0;
-
-        foreach($admins as $admin) {
-            $data .= '<tr class="even pointer">';
-            $data .= '
-                <td class=" ">{{'. ++$i .'}}</td>
-                <td class=" ">{{'. $admin->admin_name .'}}</td>
-                <td class=" ">{{'. $admin->admin_email .'}}</td>
-                <td class=" ">{{'. $admin->created_at .'}}</td>
-                <td class=" last"><a href="#">Xem chi tiết</a></td>
-            ';
-            $data .= '</tr>';
-        }
+        return redirect()->route('accountManagement');
 
         
+    }
 
-        echo $data;
+    public function deleteAccountAdmin($id) {
+        DB::table('admin')->where('admin_id', $id)->delete();
+        return redirect()->route('accountManagement');
     }
 }

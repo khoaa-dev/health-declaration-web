@@ -42,7 +42,10 @@ Route::get('/medicalManagement', 'Admin\MedicalDeclarationController@index');
 
 //Account management
 Route::get('/accountManagement', 'Admin\AccountController@index')->name('accountManagement');
-Route::post('/accountManagement/addAccount', 'Admin\AccountController@addAccountAdmin')->name('accountManagement.addAccountAdmin');
+Route::post('/accountManagement', 'Admin\AccountController@addAccountAdmin')->name('accountManagement.addAccountAdmin');
+Route::get('/accountManagement/{id}', 'Admin\AccountController@deleteAccountAdmin')->name('deleteAccountAdmin');
+
+
 // Route::post('ajax', [
 //     'uses' => 'Admin\AccountController@addAccountAdmin',
 //     'as' => 'addAccountAdmin'
