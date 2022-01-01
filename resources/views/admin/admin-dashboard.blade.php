@@ -58,86 +58,35 @@
             <div class="col-md-12 col-sm-12 ">
                 <form autocomplete="off">
                     @csrf
+                    <div class="row x_title">
+                        <div class="col-md-6">
+                            <h3>THỐNG KÊ <small>số lượng các đơn khai báo y tế</small></h3>
+                        </div>
+                    </div>
                     <div class="col-md-2">
-                        <p>Từ ngày:</p> <input type="text" id="datepicker" class="date form-control">
-                        <input type="button" id="btn-dashboard-filter" class="btn btn-primary btn-sm" value="Lọc kết quả">
+                        <p>Từ ngày:</p> <input type="text" id="datepicker" class="date form-control" name="from_date">
                     </div>
                     <div class="col-md-2">
                         <p>Đến ngày:</p> <input type="text" id="datepicker2" class="date form-control">
                     </div>
-                    {{-- <div class="col-md-2">
-                        <p>
-                            Lọc theo
-                            <select class="dashboard-filter form-control">
-                                <option value="7ngay">7 ngày qua</option>
-                                <option value="thangtruoc">tháng trước</option></option>
-                                <option value="thangnay">tháng này</option>
-                            </select>
-                        </p>
-                    </div> --}}
+                    <div class="col-md-2">
+                        <input type="button" id="btn-dashboard-filter" class="btn btn-primary btn-sm mt-3" value="Lọc kết quả" name="to_date">
+                    </div>
                     <div class="col-md-12">
                         <div id="chart" style="height: 250px;"></div>
                     </div>
+                                        
                 </form>
-                {{-- <div class="dashboard_graph">
+                <div class="dashboard_graph">
                     <div class="row x_title">
                         <div class="col-md-6">
-                            <h3>Network Activities <small>Graph title sub-title</small></h3>
-                        </div>
-                        <div class="col-md-6">
-                            <div id="reportrange" class="pull-right"
-                                style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
-                                <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-                                <span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
-                            </div>
+                            <h3>THỐNG KÊ <small>số lượng người dân</small></h3>
                         </div>
                     </div>
-
-                    <div class="col-md-9 col-sm-9 ">
-                        <div id="chart_plot_01" class="demo-placeholder"></div>
+                    <div class="col-md-12">
+                        <div id="chart1" style="height: 250px;"></div>
                     </div>
-                    <div class="col-md-3 col-sm-3  bg-white">
-                        <div class="x_title">
-                            <h2>Top Campaign Performance</h2>
-                            <div class="clearfix"></div>
-                        </div>
-
-                        <div class="col-md-12 col-sm-12 ">
-                            <div>
-                                <p>Facebook Campaign</p>
-                                <div class="">
-                                    <div class="progress progress_sm" style="width: 76%;">
-                                        <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="80">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <p>Twitter Campaign</p>
-                                <div class="">
-                                    <div class="progress progress_sm" style="width: 76%;">
-                                        <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="60">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12 col-sm-12 ">
-                            <div>
-                                <p>Conventional Media</p>
-                                <div class="">
-                                    <div class="progress progress_sm" style="width: 76%;">
-                                        <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="40">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="clearfix"></div>
-                </div> --}}
+                </div>
             </div>
         </div>
         <br />
@@ -407,61 +356,62 @@
         });  
     </script> 
     <script type="text/javascript">
-        $('#btn-dashboard-filter').click(function(){
-            var _token = $('input[name="token"]').val();
-            var from_date = $('#datepicker').val();
-            var to_date = $('#datepicker2').val();
-            $.ajax({
-                url:"{url('/filter-by-date')}",
-                method:"POST",
-                dataType:"JSON",
-                data:{from_date:from_date, to_date:to_date,_token:_token},
-                success::function(data){
-                    chart.setData(data);
-                }
-            });
-        });
-    </script>
-    <script type="text/javascript">
+
         $(document).ready(function(){
-            new Morris.Bar({
+            var chart = new Morris.Bar({
             // ID of the element in which to draw the chart.
             element: 'chart',
-            lineColors: ['#819C79', '#fc8710', '#FF6541', '#A4ADD3', '#766B56'],
+            lineColors: ['#819C79', '#fc8710', '#FF6541'],
             parseTime: false,
-            // Chart data records -- each entry in this array corresponds to a point on
-            // the chart.
-            data: [
-                { ngay: '2021-12-04', sl_diChuyenNoiDia: 20, sl_nguoiNhapCanh: 21, sl_khaiBaoToanDan: 50},
-                { ngay: '2021-12-12', sl_diChuyenNoiDia: 20, sl_nguoiNhapCanh: 21, sl_khaiBaoToanDan: 50},
-                { ngay: '2021-12-24', sl_diChuyenNoiDia: 20, sl_nguoiNhapCanh: 21, sl_khaiBaoToanDan: 50},
-                { ngay: '2021-12-31', sl_diChuyenNoiDia: 20, sl_nguoiNhapCanh: 21, sl_khaiBaoToanDan: 50}
-            ],
             hideHover: 'auto',
             xkey: 'ngay',
             ykeys: ['sl_diChuyenNoiDia', 'sl_nguoiNhapCanh', 'sl_khaiBaoToanDan'],
             labels: ['Di chuyển nội địa', 'Người nhập cảnh', 'Khai báo toàn dân']
             });
-            // var chart = new Morris.Bar({
-            //     element: 'chart',
-            //     lineColors: ['#819C79', '#fc8710', '#FF6541', '#A4ADD3', '#766B56'],
-            //     pointFillColors: ['#FFFFFF'],
-            //     pointStrokeColors: ['black'],
-            //     fillOpacity: 0.6,
-            //     hideHover: 'auto',
-            //     parseTime: false,
-            //     xkey: 'ngay',
-            //     ykeys: ['sl_diChuyenNoiDia', 'sl_nguoiNhapCanh', 'sl_khaiBaoToanDan'],
-            //     behaveLikeLine: true,
-            //     labels: ['Di chuyển nội địa', 'Người nhập cảnh', 'Khai báo toàn dân']
-            // });
+
+            var chart1 = new Morris.Area({
+            // ID of the element in which to draw the chart.
+            element: 'chart1',
+            lineColors: ['#104E8B', '#1C86EE'],
+            parseTime: false,
+            hideHover: 'auto',
+            xkey: 'ngay',
+            ykeys: ['sl_nguoiCoDauHieu', 'sl_nguoiKhongCo'],
+            labels: ['Người có biểu hiện (Sốt, ho,...)', 'Người không có biểu hiện (Sốt, ho,...)']
+            });
+
+            $('#btn-dashboard-filter').click(function(){
+            var _token = $('input[name="_token"]').val();
+            var from_date = $('#datepicker').val();
+            var to_date = $('#datepicker2').val();
+            $.ajax({
+                url:"{{URL::to('/filter-by-date')}}",
+                method:"POST",
+                dataType:"JSON",
+                data:{from_date:from_date, to_date:to_date, _token:_token},
+                success:function(data){
+                    chart.setData(data);
+                }
+            });
+            $.ajax({
+                url:"{{URL::to('/filter-by-date1')}}",
+                method:"POST",
+                dataType:"JSON",
+                data:{from_date:from_date, to_date:to_date, _token:_token},
+                success:function(data){
+                    chart1.setData(data);
+                }
+            });
+        });
         })
+
+        
     </script>
 
     <!-- Chart.js -->
     <script src="{{ asset('public/front-end/admin/vendors/Chart.js/dist/Chart.min.js') }}"></script>
     <!-- gauge.js -->
-    <script src="/vendors/gauge.js/dist/gauge.min.js"></script>
+    <script src="{{asset('public/front-end/admin/vendors/gauge.js/dist/gauge.min.js')}}"></script>
     <!-- bootstrap-progressbar -->
     <script src="{{ asset('public/front-end/admin/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js') }}">
     </script>

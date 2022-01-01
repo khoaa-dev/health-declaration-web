@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\DeclarationStatistic as AppDeclarationStatistic;
 use Illuminate\Http\Request;
-// use DB;
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
+use App\Models\DeclarationStatistic;
+use App\Models\PersonStatistic;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
 use Session;
 use Illuminate\Support\Facades\Redirect;
-session_start();
-use App\DeclarationStatistic;
-use Illuminate\Support\Facades\DB;
+use PhpParser\Node\Expr\Cast\Array_;
 
 class AdminController extends Controller
 {
@@ -72,19 +75,38 @@ class AdminController extends Controller
     }
 
     public function filter_by_date(Request $request){
-        $data = $request->all();
-        $from_date = $data['from_date'];
-        $to_date = $data['to_date'];
+        // $data = $request->all();
+        $from_date = $request->from_date;
+        $to_date = $request->to_date;
+        // $from_date = $data['from_date'];
+        // $to_date = $data['to_date'];
 
-        $get = DeclarationStatistic::whereBetween('ngay',[$from_date, $to_date])->orderBy('ngay','ASC')->get();
-        foreach($get as $key => $val){
-            $chart_data[] = array(
-                'sl_diChuyenNoiDia' => $val->sl_diChuyenNoiDia,
-                'sl_nguoiNhapCanh' => $val->sl_nguoiNhapCanh,
-                'sl_khaiBaoToanDan' => $val->sl_khaiBaoToanDan,
-                'ngay' => $val->ngay
-            );
+        // $gets = DeclarationStatistic::all();
+        $gets = DeclarationStatistic::whereBetween('ngay',[$from_date, $to_date])->orderBy('ngay','ASC')->get();
+        $chart_data = new Collection();
+        foreach($gets as $get){
+            $chart_data->push([
+                'ngay' => $get->ngay,
+                'sl_diChuyenNoiDia' => $get->sl_diChuyenNoiDia,
+                'sl_nguoiNhapCanh' => $get->sl_nguoiNhapCanh,
+                'sl_khaiBaoToanDan' => $get->sl_khaiBaoToanDan  
+            ]);
         }
-        echo $data = json_encode($chart_data);
+        return json_encode($chart_data);
+    }
+    public function filter_by_date1(Request $request){
+        $from_date = $request->from_date;
+        $to_date = $request->to_date;
+
+        $gets = PersonStatistic::whereBetween('ngay',[$from_date, $to_date])->orderBy('ngay','ASC')->get();
+        $chart_data = new Collection();
+        foreach($gets as $get){
+            $chart_data->push([
+                'ngay' => $get->ngay,
+                'sl_nguoiCoDauHieu' => $get->sl_nguoiCoDauHieu,
+                'sl_nguoiKhongCo' => $get->sl_nguoiKhongCo
+            ]);
+        }
+        return json_encode($chart_data);
     }
 }
