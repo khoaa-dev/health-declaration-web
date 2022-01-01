@@ -1,93 +1,94 @@
-<footer id="footer" class="footer-area pt-120">
-    <div class="container">
-        {{-- <div class="subscribe-area wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s"> --}}
-            {{-- <div class="row">
-                <div class="col-lg-6">
-                    <div class="subscribe-content mt-45">
-                        <h2 class="subscribe-title">Subscribe Our Newsletter <span>get reguler updates</span></h2>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="subscribe-form mt-50">
-                        <form action="#">
-                            <input type="text" placeholder="Enter eamil">
-                            <button class="main-btn">Subscribe</button>
-                        </form>
-                    </div>
-                </div>
-             </div> <!-- row --> --}}
-        {{-- </div> <!-- subscribe area --> --}}
-        <div class="footer-widget pb-100">
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-8">
-                    <div class="footer-about mt-50 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
-                        <a class="logo" href="#">
-                            <img src="{{ asset('public/front-end/images/cuccntn.png') }}" alt="logo" width="50px" height="50px">
-                        </a>
-                        <p class="text">Vì Một Việt Nam khỏe mạnh</p>
-                        <ul class="social">
-                            <li><a href="#"><i class="lni-facebook-filled"></i></a></li>
-                            <li><a href="#"><i class="lni-twitter-filled"></i></a></li>
-                            <li><a href="#"><i class="lni-instagram-filled"></i></a></li>
-                            <li><a href="#"><i class="lni-linkedin-original"></i></a></li>
-                        </ul>
-                    </div> <!-- footer about -->
-                </div>
-                <div class="col-lg-5 col-md-7 col-sm-7">
-                    <div class="footer-link d-flex mt-50 justify-content-md-between">
-                        <div class="link-wrapper wow fadeIn" data-wow-duration="1s" data-wow-delay="0.4s">
-                            {{-- <div class="footer-title">
-                                <h4 class="title">Quick Link</h4>
-                            </div> --}}
-                            <ul class="link">
-                                <li><a href="#">Đăng ký xét nghiệm Tổ chức</a></li>
-                                <li><a href="#">Đăng ký xét nghiệm cá nhân</a></li>
-                                <li><a href="#">Đăng ký xét nghiệm Nhóm/Gia đình</a></li>
-                                <li><a href="#">Xét nghiệm Cộng đồng</a></li>
-                                <li><a href="#">Tra cứu lịch sử xét nghiệm</a></li>
-                            </ul>
-                        </div> <!-- footer wrapper -->
-                        <div class="link-wrapper wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
-                            <div class="footer-title">
-                                <h4 class="title">Resources</h4>
-                            </div>
-                            <ul class="link">
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Page</a></li>
-                                <li><a href="#">Portfolio</a></li>
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="#">Contact</a></li>
-                            </ul>
-                        </div> <!-- footer wrapper -->
-                    </div> <!-- footer link -->
-                </div>
-                <div class="col-lg-3 col-md-5 col-sm-5">
-                    <div class="footer-contact mt-50 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.8s">
-                        <div class="footer-title">
-                            <h4 class="title">Contact Us</h4>
-                        </div>
-                        <ul class="contact">
-                            <li>+809272561823</li>
-                            <li>info@gmail.com</li>
-                            <li>www.yourweb.com</li>
-                            <li>Mã số thuế: 0316960662</li>
-                            <li>Địa chỉ: Tòa nhà PV Gas Tower 673 Nguyễn Hữu Thọ, Phước Kiển, Huyện Nhà Bè, TP. Hồ Chí Minh</li>
-                        </ul>
-                    </div> <!-- footer contact -->
-                </div>
-            </div> <!-- row -->
-        </div> <!-- footer widget -->
-        <div class="footer-copyright">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="copyright d-sm-flex justify-content-between">
-                        <div class="copyright-content">
-                            <p class="text">Copyright by Bo Y Te</a></p>
-                        </div> <!-- copyright content -->
-                    </div> <!-- copyright -->
-                </div>
-            </div> <!-- row -->
-        </div> <!-- footer copyright -->
-    </div> <!-- container -->
-    <div id="particles-2"></div>
-</footer>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{asset('public/front-end/footer/fonts/icomoon/style.css')}}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{asset('public/front-end/footer/css/bootstrap.min.css')}}">
+    
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="{{asset('public/front-end/footer/css/style.css')}}">
+
+    <title>Footer 01</title>
+  </head>
+  <body>
+    <div class="content d-flex align-items-center bg-light">
+      <h2 class="w-100 text-center">Footer #1</h2>
+    </div>
+    
+    <footer class="footer-20192">
+      <div class="site-section">
+        <div class="container">
+
+          <div class="cta d-block d-md-flex align-items-center px-5">
+            <div>
+              <h2 class="mb-0">Ready for a next project?</h2>
+              <h3 class="text-dark">Let's get started!</h3>
+            </div>
+            <div class="ml-auto">
+              <a href="#" class="btn btn-dark rounded-0 py-3 px-5">Contact us</a>
+            </div>
+          </div>
+          <div class="row">
+
+            <div class="col-sm">
+              <a href="#" class="footer-logo">Colorlib</a>
+              <p class="copyright">
+                <small>&copy; 2019</small>
+              </p>
+            </div>
+            <div class="col-sm">
+              <h3>Customers</h3>
+              <ul class="list-unstyled links">
+                <li><a href="#">Buyer</a></li>
+                <li><a href="#">Supplier</a></li>
+              </ul>
+            </div>
+            <div class="col-sm">
+              <h3>Company</h3>
+              <ul class="list-unstyled links">
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Contact us</a></li>
+              </ul>
+            </div>
+            <div class="col-sm">
+              <h3>Further Information</h3>
+              <ul class="list-unstyled links">
+                <li><a href="#">Terms &amp; Conditions</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+              </ul>
+            </div>
+            <div class="col-md-3">
+              <h3>Follow us</h3>
+              <ul class="list-unstyled social">
+                <li><a href="#"><span class="icon-facebook"></span></a></li>
+                <li><a href="#"><span class="icon-twitter"></span></a></li>
+                <li><a href="#"><span class="icon-linkedin"></span></a></li>
+                <li><a href="#"><span class="icon-medium"></span></a></li>
+                <li><a href="#"><span class="icon-paper-plane"></span></a></li>
+              </ul>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+    
+    
+    <script src="{{asset('public/front-end/footer/js/jquery-3.3.1.min.js')}}"></script>
+    <script src="{{asset('public/front-end/footer/js/popper.min.js')}}"></script>
+    <script src="{{asset('public/front-end/footer/js/bootstrap.min.js')}}"></script>
+  </body>
+</html>
