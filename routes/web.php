@@ -34,7 +34,8 @@ Route::post('/admin-dashboard','AdminController@dashboard');
 //admin logout
 Route::get('/admin-logout', 'AdminController@logout');
 //
-Route::get('/filter-by-date', 'AdminController@filter_by_date');
+Route::post('/filter-by-date', 'AdminController@filter_by_date');
+Route::post('/filter-by-date1', 'AdminController@filter_by_date1');
 
 // Route::get('/admin/form-advanced', function () {
 //     return view('admin.form_advanced');

@@ -35,7 +35,7 @@
 				<form action="{{URL::to('/admin-dashboard')}}" method="post" class="login100-form validate-form">
 					{{ csrf_field() }}
 					<span class="login100-form-title p-b-43">
-						Login to continue
+						ĐĂNG NHẬP
 					</span>
 					
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
@@ -48,7 +48,7 @@
 					<div class="wrap-input100 validate-input" data-validate="Password is required">
 						<input class="input100" type="password" name="admin_password">
 						<span class="focus-input100"></span>
-						<span class="label-input100">Password</span>
+						<span class="label-input100">Mật khẩu</span>
 					</div>
 
 					<?php
@@ -63,26 +63,26 @@
 						<div class="contact100-form-checkbox">
 							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
 							<label class="label-checkbox100" for="ckb1">
-								Remember me
+								Nhớ mật khẩu
 							</label>
 						</div>
 
 						<div>
 							<a href="#" class="txt1">
-								Forgot Password?
+								Quên mật khẩu?
 							</a>
 						</div>
 					</div>
 			
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">
-							Login
+							Đăng nhập
 						</button>
 					</div>
 					
 					<div class="text-center p-t-46 p-b-20">
 						<span class="txt2">
-							or sign up using
+							hoặc Đăng ký bằng
 						</span>
 					</div>
 
