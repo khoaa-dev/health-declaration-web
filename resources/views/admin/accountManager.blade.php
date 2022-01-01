@@ -116,7 +116,8 @@
                                             <td class=" ">{{ $accountUser->fullName }}</td>
                                             <td class=" ">{{ $accountUser->email }}</td>
                                             <td class=" ">{{ $accountUser->created_at }}</td>
-                                            <td class=" last"><a href="#">Xem chi tiết</a>
+                                            <td class=" last"><button class="btn btn-warning" href="#">Sửa</button>
+                                                <button class="btn btn-danger" href="#">Xóa</button>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -144,7 +145,7 @@
                 </div>
 
                 <div class="add-account-box">
-                    <button type="submit" class="btn btn-primary" id="add-account-admin">Thêm tài khoản</button>
+                    <button type="submit" class="btn btn-success" id="add-account-admin">Thêm tài khoản</button>
                 </div>
             </div>
 
@@ -152,7 +153,12 @@
                 <div id="form-add-account-admin" class=" col-12" style="display: none">
                     <div class="col-12" style="font-size: 20px">
                         
-                        <div class="form-froup">
+                        {{-- <form id="formAddAdmin">
+                            
+                        </form> --}}
+                            
+                        <form action="{{ route('accountManagement') }}" method="POST" id="form-add-account-admin">
+                            @csrf
                             <div class="form-group row">
                                 <label for="admin_name" class="col-md-6 col-form-label text-md-right">{{ __('Họ và tên') }}</label>
     
@@ -228,15 +234,16 @@
                                     </button>
                                 </div>
                             </div>
-                        </div>
-                        {{-- <form action="{{ route('accountManagement') }}" method="POST" id="form-add-account-admin">
-                            {{ csrf_field() }}
-                            
-                        </form> --}}
-                        {{ csrf_field() }}
+                        </form>
+                        {{-- {{ csrf_field() }} --}}    
                     
                     </div>
                     
+                </div>
+                <div class="message">
+                    @if (isset($message))
+                    <div class="DG-warning" style="color: red;text-transform: none;">{{ $message }}</div>
+                    @endif
                 </div>
             </div>
             <div class="row">
@@ -247,7 +254,7 @@
         
                     <div class="x_content">
                         <div class="table-responsive">
-                            <table class="table table-striped jambo_table bulk_action" >
+                            <table class="table table-striped jambo_table bulk_action" id="accountAdmin">
                                 <thead>
                                     <tr class="headings text-center" style="font-size: 20px">
                                         <th class="column-title" style="width: 10%">STT </th>
@@ -259,16 +266,15 @@
                                 </thead>
         
                                 <tbody class="text-center" style="font-size: 16px" >
-                                    <div id="list-account-admin">
-
-                                    </div>
                                     @foreach ($accountAdmins as $accountAdmin)
                                         <tr class="even pointer">
                                             <td class=" ">{{ ++$i2 }}</td>
                                             <td class=" ">{{ $accountAdmin->admin_name }}</td>
                                             <td class=" ">{{ $accountAdmin->admin_email }}</td>
                                             <td class=" ">{{ $accountAdmin->created_at }}</td>
-                                            <td class=" last"><a href="#">Xem chi tiết</a></td>
+                                            <td class=" last"><button class="btn btn-warning" href="#">Sửa</button>
+                                                <button class="btn btn-danger"
+                                                onclick="window.location.href = '{{ URL::to('/accountManagement/' .$accountAdmin->admin_id)}}' ">Xóa</button></td>
                                         </tr>
                                     @endforeach
                                     
@@ -281,6 +287,31 @@
                         </div>
         
         
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle" style="color: red">Thông báo</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Bạn đã thêm tài khoản thành công</p>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn-back-homepage"
+                                onclick="window.location.href = '{{ route('accountManagement')}}' ">Đồng ý</button>
+                            </div>
+                        </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -331,37 +362,17 @@
     }
 </script>
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js">
-    // $('#form-add-account-admin').submit(function(e) {
-    //     e.preventDefault();
-        
-          
-    // })
+{{-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> --}}
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+{{-- <script src="{{ asset('public/js/admin/account.js') }}"></script> --}}
+<script type="text/javascript">
     $(document).ready(function() {
-        $('#add-account-admin').click(function() {
-            var admin_name = $('#admin_name').val();
-            var admin_email = $('#admin_email').val();
-            var admin_password = $('#admin_password').val();
-            var admin_phone = $('#admin_phone').val();
-            var _token = $('input[name="_token"]').val();
-            $.ajax({
-                url: "{{ route('accountManagement.addAccountAdmin') }}",
-                method: "POST",
-                data: {
-                    admin_name: admin_name,
-                    admin_email: admin_email,
-                    admin_password: admin_password,
-                    admin_phone: admin_phone,
-                    _token: _token,
-                },
-                success: function(data) {
-                    $('#list-account-admin').fadeIn();
-                    $('#list-account-admin').html(data);
-                    console.log(data);
-                }
-            })
-        });
+        $('#form-add-account-admin').submit(function(e) {
+            e.preventDefault();
+            setTimeout(() => {
+                
+            }, 2000);
+        })
     })
 </script>
 @endsection
