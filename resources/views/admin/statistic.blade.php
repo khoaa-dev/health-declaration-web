@@ -33,21 +33,14 @@
                 </div>
                 <div class="col-md-3 col-sm-4  tile_stats_count">
                     <span class="count_top" style="font-size: 16px">Số lượng người dùng</span>
+                    <div class="count">37</div>
                     
-                    <div class="count">
-                        <?php
-                            $countUser = Session::get('countUser');
-                            if($countUser){
-                                echo $countUser;
-                            }
-					    ?>
-                    </div>
                     <span class="count_bottom"><i class="green">34% </i> hôm
                         qua</span>
                 </div>
                 <div class="col-md-3 col-sm-4  tile_stats_count">
                     <span class="count_top" style="font-size: 16px"> Đã khai báo</span>
-                    <div class="count">67</div>
+                    <div class="count">2</div>
                     <span class="count_bottom"><i class="red">12% </i> hôm
                         qua</span>
                 </div>
@@ -161,10 +154,7 @@
                 hideHover: 'auto',
                 xkey: 'ngay',
                 ykeys: ['sl_diChuyenNoiDia', 'sl_nguoiNhapCanh', 'sl_khaiBaoToanDan'],
-                labels: ['Di chuyển nội địa', 'Người nhập cảnh', 'Khai báo toàn dân'],
-                data: {
-
-                }
+                labels: ['Di chuyển nội địa', 'Người nhập cảnh', 'Khai báo toàn dân']
             });
 
             var chart1 = new Morris.Area({

@@ -130,31 +130,50 @@ class AdminController extends Controller
     }
 
     public function action(Request $request){
+        $query = $request->get('query');
+            if($query != ''){
+                $domesticGuests = DB::table('domestic_move_declarations')
+                                ->join('users', 'domestic_move_declarations.idUser', '=', 'users.id')
+                                ->where('fullName','like', '%'. $query .'%')
+                                ->select('users.fullName', 'domestic_move_declarations.created_at')
+                                ->orderBy('created_at', 'desc')
+                                ->paginate(10);
+            }
+            else{
+                $domesticGuests = DB::table('domestic_move_declarations')
+                                ->join('users', 'domestic_move_declarations.idUser', '=', 'users.id')
+                                ->select('users.fullName', 'domestic_move_declarations.created_at')
+                                ->orderBy('created_at', 'desc')
+                                ->paginate(10);
+            }
+            // $total_row = $domesticGuests->count();
+            $i = 0;
+            $output = "";
+            foreach($domesticGuests as $domesticGuest){
+                $output .= '
+                <tr class="even pointer">
+                    <td class=" ">'.++$i.'</td>
+                    <td class=" ">'.$domesticGuest->fullName.'</td>
+                    <td class=" ">'.$domesticGuest->created_at.'</td>
+                    <td class=" last"><a href="#">Xem chi tiết</a>
+                    </td>
+                </tr>';
+            }
+            // if($total_row > 0){
+                
+            // }
+            // else{
+            //     $output = '
+            //     <tr>
+            //     <td align="center" colspann="5">Không tìm thấy kết quả!</td>
+            //     </tr>';
+            // }
+            $domesticGuests = array(
+                'table_data' => $output
+            );
+            return json_encode($domesticGuests);
         // if($request->ajax()){
-        //     $query = $request->get('query');
-        //     if($query != ''){
-        //         $domesticGuests = DB::table('domestic_guest_declarations')
-        //                         ->join('users', 'domestic_guest_declarations.idUser', '=', 'users.id')
-        //                         ->where('fullName','like','%'.$query.'%')
-        //                         ->orderBy('created_at', 'desc')
-        //                         ->paginate(10);
-        //     }
-        //     else{
-        //         $domesticGuests = DB::table('domestic_guest_declarations')
-        //                         ->join('users', 'domestic_guest_declarations.idUser', '=', 'users.id')
-        //                         ->select('users.fullName', 'domestic_guest_declarations.created_at')
-        //                         ->orderBy('created_at', 'desc')
-        //                         ->paginate(10);
-        //     }
-        //     $total_row = $data->count();
-        //     if($total_row > 0){
-        //         foreach($data as $row){
-        //             $output .= '
-        //             <tr>
-        //                 <td></td>
-        //             </tr>';
-        //         }
-        //     }
+            
         // }
     }
 }

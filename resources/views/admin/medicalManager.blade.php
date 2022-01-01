@@ -1,6 +1,7 @@
 @extends('admin.templates.admin-page')
 
 @section('css')
+
     <style>
         .tabs {
             display: flex;
@@ -79,9 +80,10 @@
         <div class="tab-pane active">
             <div class="row d-flex flex-row-reverse m-3">
                 <div class="searh-box d-flex">
+                    @csrf
                     <label for="search" class="mr-1" style="font-size: 16px !important; margin-top:10px">Nhập tên: </label>
                     <input type="text" name="search" id="search_name" class="" style="font-size: 16px; border: 1px solid #e7e7e7; border-radius: 8px; padding-inline-start: 10px">
-                    <button type="submit" class="btn btn-primary" style="margin-left: 10px; margin-top: 5px">Tìm kiếm</button>
+                    <button type="submit" class="btn btn-primary" style="margin-left: 10px; margin-top: 5px" id="btn-search">Tìm kiếm</button>
                 </div>
             </div>
             <div class="row">
@@ -92,7 +94,7 @@
         
                     <div class="x_content">
                         <div class="table-responsive">
-                            <table class="table table-striped jambo_table bulk_action" >
+                            <table class="table table-striped jambo_table bulk_action" id="table-1">
                                 <thead>
                                     <tr class="headings text-center" style="font-size: 18px">
                                         <th class="column-title" style="width: 10%">STT </th>
@@ -116,7 +118,7 @@
                                 </tbody>
                             </table>
 
-                            <div class="d-flex justify-content-center">
+                            <div class=" justify-content-center" id="pagination-1" style="display: flex">
                                 {{ $domesticGuests->links() }}
                             </div>
                         </div>
@@ -234,17 +236,21 @@
 
     
 </div>
+@endsection
 
 @section('js')
+{{-- jQuery --}}
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> --}}
+
 <script>
-    const $ = document.querySelector.bind(document);
-    const $$ = document.querySelectorAll.bind(document);
+    // const $ = document.querySelector.bind(document);
+    // const $$ = document.querySelectorAll.bind(document);
 
-    const tabs = $$('.tab-item');
-    const panes = $$('.tab-pane');
+    const tabs = document.querySelectorAll('.tab-item');
+    const panes = document.querySelectorAll('.tab-pane');
 
-    const tabActive = $('.tab-item.active');
-    const line = $('.tabs .line');
+    const tabActive = document.querySelector('.tab-item.active');
+    const line = document.querySelector('.tabs .line');
 
     line.style.left = tabActive.offsetLeft + 'px';
     line.style.width = tabActive.offsetWidth + 'px';
@@ -253,8 +259,8 @@
         const pane = panes[index];
 
         tab.onclick = function() {
-            $('.tab-item.active').classList.remove('active');
-            $('.tab-pane.active').classList.remove('active');
+            document.querySelector('.tab-item.active').classList.remove('active');
+            document.querySelector('.tab-pane.active').classList.remove('active');
 
             line.style.left = this.offsetLeft + 'px';
             line.style.width = this.offsetWidth + 'px';
@@ -265,23 +271,38 @@
     });
 
 </script>
-<script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript">
+
     $(document).ready(function () {
-        function fetch_customer_data(query = '
+        // fetch_customer_data();
+        // function fetch_customer_data(query = ''){
+            
+        // }
+        $('#btn-search').on('click', function(event){
+            $('#pagination-1').hide();
+            event.preventDefault();
+            
+            // alert("alo");
+            var query = $('input[name=search]').val();
+            var _token = $('input[name=_token]').val();
+            // fetch_customer_data(query);
             $.ajax({
                 url:"{{route('search')}}",
-                method:"GET",
-                data:{query:query},
+                method:"POST",
+                data:{
+                    query:query,
+                    _token: _token
+                },
                 dataType:"JSON",
                 success:function(data){
-                    $('tbody').html(data.table_data);
+                    $('#table-1 tbody').html(data.table_data);
                 }
             });
-         }
+        })
     });
-   }
+    
 </script>
 @endsection
 
     
-@endsection

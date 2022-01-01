@@ -116,8 +116,7 @@
                                             <td class=" ">{{ $accountUser->fullName }}</td>
                                             <td class=" ">{{ $accountUser->email }}</td>
                                             <td class=" ">{{ $accountUser->created_at }}</td>
-                                            <td class=" last"><button class="btn btn-warning" href="#">Sửa</button>
-                                                <button class="btn btn-danger" href="#">Xóa</button>
+                                            <td class=" last"><button class="btn btn-warning" href="#">Xem chi tiết</button>
                                             </td>
                                         </tr>
                                     @endforeach
