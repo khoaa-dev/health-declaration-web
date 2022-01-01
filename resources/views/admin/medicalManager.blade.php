@@ -81,7 +81,7 @@
                 <div class="searh-box d-flex">
                     <label for="search" class="mr-1" style="font-size: 16px !important; margin-top:10px">Nhập tên: </label>
                     <input type="text" name="search" id="search_name" class="" style="font-size: 16px; border: 1px solid #e7e7e7; border-radius: 8px; padding-inline-start: 10px">
-                    <button type="submit" class="btn btn-primary" style="margin-left: 10px; margin-top: 5px">Tìm kiếm</button>
+                    <button type="submit" id="btn-search" class="btn btn-primary" style="margin-left: 10px; margin-top: 5px">Tìm kiếm</button>
                 </div>
             </div>
             <div class="row">
@@ -265,9 +265,10 @@
     });
 
 </script>
-<script>
+<script type="text/javascript">
     $(document).ready(function () {
-        function fetch_customer_data(query = '
+        fetch_customer_data();
+        function fetch_customer_data(query = ''){
             $.ajax({
                 url:"{{route('search')}}",
                 method:"GET",
@@ -277,9 +278,12 @@
                     $('tbody').html(data.table_data);
                 }
             });
-         }
-    });
-   }
+        }
+        $('#btn-search').click(function(event){
+            alert("alo");
+            var query = $(this).val();
+            fetch_customer_data(query);
+        }
 </script>
 @endsection
 

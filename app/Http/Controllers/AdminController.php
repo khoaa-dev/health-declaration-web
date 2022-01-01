@@ -144,15 +144,30 @@ class AdminController extends Controller
                                 ->orderBy('created_at', 'desc')
                                 ->paginate(10);
             }
-            $total_row = $data->count();
+            $total_row = $domesticGuests->count();
+            $output = "";
             if($total_row > 0){
-                foreach($data as $row){
+                foreach($domesticGuests as $domesticGuest){
                     $output .= '
-                    <tr>
-                        <td></td>
+                    <tr class="even pointer">
+                        <td class=" ">'.$domesticGuest->id.'</td>
+                        <td class=" ">'.$domesticGuest->fullName.'</td>
+                        <td class=" ">'.$domesticGuest->created_at.'</td>
+                        <td class=" last"><a href="#">Xem chi tiết</a>
+                        </td>
                     </tr>';
                 }
             }
+            else{
+                $output = '
+                <tr>
+                <td align="center" colspann="5">Không tìm thấy kết quả!</td>
+                </tr>';
+            }
+            $domesticGuests = array(
+                'table_data' => $output
+            );
+            return json_encode($domesticGuests);
         }
     }
 }

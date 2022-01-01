@@ -56,6 +56,6 @@ Route::resource('/domesticGuest', 'DomesticGuestController');
 Route::get('/statistic','AdminController@show_statistic')->name('statistic');
 
 Route::get('search', 'AdminController@getSearch');
-Route::post('search/name', 'AdminController@getSearchAjax')->name('search');
+Route::post('search/action', 'AdminController@action')->name('search');
 
 
