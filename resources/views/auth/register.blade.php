@@ -76,7 +76,7 @@
 </div> --}}
 <div class="limiter">
 	<div class="container-login100">
-		<div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
+		<div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55 mb-100">
 			<form method="POST" action="{{ route('register') }}" class="login100-form validate-form flex-sb flex-w">
                 @csrf
 				<span class="login100-form-title p-b-32" style="">

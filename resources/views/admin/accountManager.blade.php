@@ -1,6 +1,7 @@
 @extends('admin.templates.admin-page')
 
 @section('css')
+    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" /> --}}
     <style>
         .tabs {
             display: flex;
@@ -86,6 +87,7 @@
                 <div class="add-account-box">
                     <button type="submit" class="btn btn-primary">Thêm tài khoản</button>
                 </div>
+                
             </div>
             <div class="row">
                 <div class="x_panel">
@@ -150,7 +152,7 @@
                 <div id="form-add-account-admin" class=" col-12" style="display: none">
                     <div class="col-12" style="font-size: 20px">
                         
-                            
+                        <div class="form-froup">
                             <div class="form-group row">
                                 <label for="admin_name" class="col-md-6 col-form-label text-md-right">{{ __('Họ và tên') }}</label>
     
@@ -178,7 +180,7 @@
                                     @enderror
                                 </div>
                             </div>
-
+    
                             <div class="form-group row">
                                 <label for="phone" class="col-md-6 col-form-label text-md-right">{{ __('Số điện thoại') }}</label>
     
@@ -214,20 +216,25 @@
                                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                                 </div>
                             </div>
-
+    
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4 d-flex flex-row-reverse">
                                     <button type="submit" class="btn btn-primary" id="add-account-admin">
                                         {{ __('Thêm') }}
                                     </button>
-
+    
                                     <button type="submit" class="btn btn-secondary" id="cancle-add-account-admin">
                                         {{ __('Hủy') }}
                                     </button>
                                 </div>
                             </div>
+                        </div>
+                        {{-- <form action="{{ route('accountManagement') }}" method="POST" id="form-add-account-admin">
                             {{ csrf_field() }}
-                        
+                            
+                        </form> --}}
+                        {{ csrf_field() }}
+                    
                     </div>
                     
                 </div>
@@ -251,8 +258,10 @@
                                     </tr>
                                 </thead>
         
-                                <tbody class="text-center" style="font-size: 16px" id="list-account-admin">
-                                    
+                                <tbody class="text-center" style="font-size: 16px" >
+                                    <div id="list-account-admin">
+
+                                    </div>
                                     @foreach ($accountAdmins as $accountAdmin)
                                         <tr class="even pointer">
                                             <td class=" ">{{ ++$i2 }}</td>
@@ -322,34 +331,38 @@
     }
 </script>
 
-<script type="text/javascript">
-        var admin_name = $('input[name=admin_name]').val();
-        var admin_email = $('input[name=admin_email]').val();
-        var admin_password = $('input[name=admin_password]').val();
-        var admin_phone = $('input[name=admin_phone]').val();
-        var _token = $('input[name=_token]').val();
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js">
+    // $('#form-add-account-admin').submit(function(e) {
+    //     e.preventDefault();
+        
+          
+    // })
+    $(document).ready(function() {
         $('#add-account-admin').click(function() {
+            var admin_name = $('#admin_name').val();
+            var admin_email = $('#admin_email').val();
+            var admin_password = $('#admin_password').val();
+            var admin_phone = $('#admin_phone').val();
+            var _token = $('input[name="_token"]').val();
             $.ajax({
-                url: "{{ route('addAccountAdmin') }}",
-                type: "POST",
+                url: "{{ route('accountManagement.addAccountAdmin') }}",
+                method: "POST",
                 data: {
                     admin_name: admin_name,
                     admin_email: admin_email,
                     admin_password: admin_password,
                     admin_phone: admin_phone,
-                    _token: _token
+                    _token: _token,
                 },
-                dataType: "html",
                 success: function(data) {
-                    // $('#list-account-admin').fadeIn();
+                    $('#list-account-admin').fadeIn();
                     $('#list-account-admin').html(data);
                     console.log(data);
                 }
             })
         });
-    // $(document).ready(function() {
-        
-    // })
+    })
 </script>
 @endsection
 

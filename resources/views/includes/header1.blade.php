@@ -212,21 +212,13 @@
                 @endif
             @else
                 <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                    <a id="navbarDropdown" class="nav-link" href="#" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ Auth::user()->email }} <span class="caret"></span>
                     </a>
+                    
 
-                    {{-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
-
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                    </div> --}}
+                    
                 </li>
                 <li class="nav-item">
                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -239,6 +231,9 @@
                         </form>
                 </li>
             @endguest
+            <li class="nav-item">
+                <a class="page-scroll" href="{{ route('admin-login') }}">Trang quản trị</a>
+            </li>
         </ul>
       </div>
     </div>

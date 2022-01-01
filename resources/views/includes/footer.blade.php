@@ -1,94 +1,73 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600&display=swap" rel="stylesheet">
+<footer class="footer-20192">
+  <div class="site-section">
+    <div class="container">
 
-    <link rel="stylesheet" href="{{asset('public/front-end/footer/fonts/icomoon/style.css')}}">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{asset('public/front-end/footer/css/bootstrap.min.css')}}">
-    
-    <!-- Style CSS -->
-    <link rel="stylesheet" href="{{asset('public/front-end/footer/css/style.css')}}">
-
-    <title>Footer 01</title>
-  </head>
-  <body>
-    <div class="content d-flex align-items-center bg-light">
-      <h2 class="w-100 text-center">Footer #1</h2>
-    </div>
-    
-    <footer class="footer-20192">
-      <div class="site-section">
-        <div class="container">
-
-          <div class="cta d-block d-md-flex align-items-center px-5">
-            <div>
-              <h2 class="mb-0">Ready for a next project?</h2>
-              <h3 class="text-dark">Let's get started!</h3>
-            </div>
-            <div class="ml-auto">
-              <a href="#" class="btn btn-dark rounded-0 py-3 px-5">Contact us</a>
-            </div>
-          </div>
-          <div class="row">
-
-            <div class="col-sm">
-              <a href="#" class="footer-logo">Colorlib</a>
-              <p class="copyright">
-                <small>&copy; 2019</small>
-              </p>
-            </div>
-            <div class="col-sm">
-              <h3>Customers</h3>
-              <ul class="list-unstyled links">
-                <li><a href="#">Buyer</a></li>
-                <li><a href="#">Supplier</a></li>
-              </ul>
-            </div>
-            <div class="col-sm">
-              <h3>Company</h3>
-              <ul class="list-unstyled links">
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Careers</a></li>
-                <li><a href="#">Contact us</a></li>
-              </ul>
-            </div>
-            <div class="col-sm">
-              <h3>Further Information</h3>
-              <ul class="list-unstyled links">
-                <li><a href="#">Terms &amp; Conditions</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-              </ul>
-            </div>
-            <div class="col-md-3">
-              <h3>Follow us</h3>
-              <ul class="list-unstyled social">
-                <li><a href="#"><span class="icon-facebook"></span></a></li>
-                <li><a href="#"><span class="icon-twitter"></span></a></li>
-                <li><a href="#"><span class="icon-linkedin"></span></a></li>
-                <li><a href="#"><span class="icon-medium"></span></a></li>
-                <li><a href="#"><span class="icon-paper-plane"></span></a></li>
-              </ul>
-            </div>
-            
-          </div>
+      <div class="cta d-block d-md-flex align-items-center px-5">
+        <div>
+          <h2 class="mb-0">BẠN KHÔNG THỂ KHAI BÁO?</h2>
+          <h3 class="text-dark">Đừng lo lắng!</h3>
+        </div>
+        <div class="ml-auto">
+          <a href="#" class="btn btn-dark rounded-0 py-3 px-5">Liên hệ ngay với chúng tôi</a>
         </div>
       </div>
-    </footer>
+      <div class="row pb-5">
 
+        <div class="col-sm">
+          {{-- <a href="#" class="footer-logo">Bộ y tế</a> --}}
+          <img src="{{asset('public/front-end/images/cuccntn.png')}}" width="100px" height="100px">
+          {{-- <p class="copyright">
+            <small>&copy; 2019</small>
+          </p> --}}
+        </div>
+        <div class="col-sm">
+          <h3 style="color: #fff; font-size:24px; font-weight: 600">Khai báo</h3>
+          <ul class="list-unstyled link">
+            <li><a href="#">Khai báo y tế toàn dân</a></li>
+            <li><a href="#">Khai báo y tế di chuyển nội địa</a></li>
+            <li><a href="#">Khai báo y tế nhập cảnh</a></li>
+          </ul>
+        </div>
+        <div class="col-sm">
+          <h3 style="color: #fff; font-size:24px; font-weight: 600">Đăng ký</h3>
+          <ul class="list-unstyled link">
+            <li><a href="#">Đăng ký xét nghiệm tổ chức</a></li>
+            <li><a href="#">Đăng ký xét nghiệm cá nhân</a></li>
+            <li><a href="#">Đăng ký xét nghiệm đại diện</a></li>
+          </ul>
+        </div>
+        <div class="col-sm">
+          <h3 style="color: #fff; font-size:24px; font-weight: 600">Tiêm chủng</h3>
+          <ul class="list-unstyled link">
+            <li><a href="#">Đăng ký tiêm chủng cá nhân</a></li>
+            <li><a href="#">Tra cứu lịch sử tiêm chủng</a></li>
+          </ul>
+        </div>
+        <div class="col-sm">
+          <h3 style="color: #fff; font-size:24px; font-weight: 600">Điều khoản</h3>
+          <ul class="list-unstyled link">
+            <li><a href="#">Điều khoản sử dụng</a></li>
+            <li><a href="#">Những câu hỏi thường gặp</a></li>
+          </ul>
+        </div>
+        {{-- <div class="col-md-3">
+          <h3>Follow us</h3>
+          <ul class="list-unstyled social">
+            <li><a href="#"><span class="icon-facebook"></span></a></li>
+            <li><a href="#"><span class="icon-twitter"></span></a></li>
+            <li><a href="#"><span class="icon-linkedin"></span></a></li>
+            <li><a href="#"><span class="icon-medium"></span></a></li>
+            <li><a href="#"><span class="icon-paper-plane"></span></a></li>
+          </ul>
+        </div> --}}
+        
+      </div>
+    </div>
+  </div>
+</footer>
 
-    
-    
-    <script src="{{asset('public/front-end/footer/js/jquery-3.3.1.min.js')}}"></script>
-    <script src="{{asset('public/front-end/footer/js/popper.min.js')}}"></script>
-    <script src="{{asset('public/front-end/footer/js/bootstrap.min.js')}}"></script>
-  </body>
-</html>
+@section('js')
+
+@endsection

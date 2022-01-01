@@ -36,7 +36,7 @@
                     <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
                         <li class="nav-item">
                             <a class="dropdown-item">
-                                <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                {{-- <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span> --}}
                                 <span>
                                     <span>John Smith</span>
                                     <span class="time">3 mins ago</span>
@@ -48,7 +48,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="dropdown-item">
-                                <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                {{-- <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span> --}}
                                 <span>
                                     <span>John Smith</span>
                                     <span class="time">3 mins ago</span>
@@ -60,7 +60,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="dropdown-item">
-                                <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                {{-- <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span> --}}
                                 <span>
                                     <span>John Smith</span>
                                     <span class="time">3 mins ago</span>
@@ -72,7 +72,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="dropdown-item">
-                                <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                {{-- <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span> --}}
                                 <span>
                                     <span>John Smith</span>
                                     <span class="time">3 mins ago</span>

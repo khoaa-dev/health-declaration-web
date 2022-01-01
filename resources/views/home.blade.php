@@ -1,12 +1,17 @@
 @extends('layouts.app')
 
+@section('css')
+<link rel="stylesheet" href="{{ asset('public/css/home.css') }}">
+    
+@endsection
+
 @section('content')
-<div class="container">
+<div class="container mb-100">
     <div class="row">
-        <div class="col-12">
-            <h1 class="text-center mtb-20 w-100">Tờ khai y tế/Vietnam Health Declaration</h1><br>
+        <div class="col-12 mt-4 p-0">
+            <h1 class="text-center mtb-20 w-100" style="color: #2f3492">Tờ khai y tế/Vietnam Health Declaration</h1><br>
             <ul class="nav nav-tabs nav-tab tabs d-flex text-center col-12" style="background: #eaeaea"> 
-                <li class="tab-item active col-4"><a data-toggle="tab" href="#tab-9-3" data-case="HDLocal">Khai di chuyển nội địa<br>For domestic move declaration</a></li>
+                <li class="tab-item active col-4"><a data-toggle="tab" href="#tab-9-3" data-case="HDLocal">Khai báo di chuyển nội địa<br>For domestic move declaration</a></li>
                 <li class="tab-item col-4"><a data-toggle="tab" href="#tab-9-1" data-case="HDPassenger">Cho người nhập cảnh<br>Entry declaration</a></li>
                 <li class="tab-item col-4"><a data-toggle="tab" href="#tab-9-2" data-case="HDHealth">Khai báo toàn dân<br>For domestic guests</a></li>
                 <div class="line"></div>
@@ -14,7 +19,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="tab-content">
+        <div class="tab-content" style="font-size: 20px">
             <div class="tab-pane active">
                 <form action="">
                     @csrf
@@ -23,12 +28,12 @@
                         <div class="list-lang">
                             <div class="sendType-option inline-block">
                                 <label style="font-weight:100;width:auto;display:inline-block;">
-                                    <input class="style-radio" type="radio" name="fields[lang]" value="vi">
+                                    <input class="style-radio radio-lang" type="radio" name="fields[lang]" value="vi">
                                     <img alt="" src="{{ asset('/public/front-end/images/vi.jpg') }}" width="70" height="50">
                                 </label>
                                  
                                 <label style="font-weight:100;width:auto;display:inline-block;">
-                                    <input class="style-radio" type="radio" name="fields[lang]" value="en" checked="">
+                                    <input class="style-radio radio-lang" type="radio" name="fields[lang]" value="en" checked="">
                                     <img alt="" src="{{ asset('/public/front-end/images/en.jpg') }}" width="70" height="50">
                                 </label>
                             </div>
@@ -285,7 +290,7 @@
     
                             <div class="infor-sign">
                                 <div class="row">
-                                    <div class="   col-xs-12 ">
+                                    <div class="col-12 ">
                                         <div class="form-group form-lenght d-flex">
                                             <label class="mr-5">Trong vòng 14 ngày qua, Anh/Chị có đến tỉnh/thành phố, quốc gia/vùng lãnh thổ nào (Có thể đi qua nhiều nơi)</label>
                                             <div class="mt-10 inline-block pl-10"> 
@@ -301,18 +306,24 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <label class="w-100">Trong vòng 14 ngày qua, Anh/Chị có thấy xuất hiện ít nhất 1 trong các dấu hiệu: sốt, ho, khó thở, viêm phổi, đau họng, mệt mỏi không?</label>
-                                    <div class="mt-10 inline-block pl-10"> 
-                                        <input type="radio" name="sign" value="0" class="style-radio" checked=""> Không
-                                        <input type="radio" name="sign" value="1" data-x-group="1" class="style-radio"> Có
-                                    </div>
-                                    <div class="mt-10 showSignal" style="display: none;">
-                                        <div style="clear:both">
-                                            <textarea class="input11013 form-control" id="input11013" style="/**/height:200pxpx;" name="fields[showSignalNote]" disabled="disabled"></textarea>
-                                        </div> 
+                                    <div class="col-12">
+                                        <label class="w-100">Trong vòng 14 ngày qua, Anh/Chị có thấy xuất hiện ít nhất 1 trong các dấu hiệu: sốt, ho, khó thở, viêm phổi, đau họng, mệt mỏi không?</label>
+                                        <div class="mt-10 inline-block pl-10"> 
+                                            <input type="radio" name="sign" value="0" class="style-radio" checked=""> Không
+                                            <input type="radio" name="sign" value="1" data-x-group="1" class="style-radio"> Có
+                                        </div>
+                                        <div class="mt-10 showSignal" style="display: none;">
+                                            <div style="clear:both">
+                                                <textarea class="input11013 form-control" id="input11013" style="/**/height:200pxpx;" name="fields[showSignalNote]" disabled="disabled"></textarea>
+                                            </div> 
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="row mb-10"><b>Trong vòng 14 ngày qua, Anh/Chị có tiếp xúc với <span class="text-required">(*)</span></b></div>
+                                <div class="row mb-10">
+                                    <div class="col-12">
+                                        <b>Trong vòng 14 ngày qua, Anh/Chị có tiếp xúc với <span class="text-required">(*)</span></b>
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <div class="col-12 ">
                                         <table class="table table-bordered tableData2"> 
@@ -364,12 +375,22 @@
                             </div>
                             <div class="agree-box">
                                 <div class="row">
-                                    <div class="label-agree">Dữ liệu bạn cung cấp hoàn toàn bảo mật và chỉ phục vụ cho việc phòng chống dịch, 
-                                        thuộc quản lý của Ban chỉ đạo quốc gia về Phòng chống dịch Covid-19. 
-                                        Khi bạn nhấn nút "Gửi" là bạn đã hiểu và đồng ý.</div>
+                                    <div class="col-12">
+                                        <div class="label-agree">Dữ liệu bạn cung cấp hoàn toàn bảo mật và chỉ phục vụ cho việc phòng chống dịch, 
+                                            thuộc quản lý của Ban chỉ đạo quốc gia về Phòng chống dịch Covid-19. 
+                                            Khi bạn nhấn nút "Gửi" là bạn đã hiểu và đồng ý.</div>
+                                    </div>
+                                </div>
+                                <div class="row d-flex justify-content-center mt-4 mb-4">
+                                    <div class="g-recaptcha" data-sitekey="{{ env('CAPTCHA_KEY') }}"></div>
+                                    @if ($errors->has('g-recaptcha-response'))
+                                        <span class="invalid-feedback" style="display:block">
+                                            <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                        </span>
+                                    @endif
                                 </div>
                             </div>
-                            <div class="btn-submit-box text-center"> <button type="submit" class="btn btn-success">Gửi tờ khai</button> </div>
+                            <div class="btn-submit-box text-center"> <button type="submit" class="btn btn-success" id="btn-submit">Gửi tờ khai</button> </div>
                         </div>
                     </div>
                 </form>    
@@ -382,12 +403,12 @@
                         <div class="list-lang">
                             <div class="sendType-option inline-block">
                                 <label style="font-weight:100;width:auto;display:inline-block;">
-                                    <input class="style-radio" type="radio" name="fields[lang]" value="vi">
+                                    <input class="style-radio radio-lang" type="radio" name="fields[lang]" value="vi">
                                     <img alt="" src="{{ asset('/public/front-end/images/vi.jpg') }}" width="70" height="50">
                                 </label>
                                  
                                 <label style="font-weight:100;width:auto;display:inline-block;">
-                                    <input class="style-radio" type="radio" name="fields[lang]" value="en" checked="">
+                                    <input class="style-radio radio-lang" type="radio" name="fields[lang]" value="en" checked="">
                                     <img alt="" src="{{ asset('/public/front-end/images/en.jpg') }}" width="70" height="50">
                                 </label>
                             </div>
@@ -1002,7 +1023,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="certificate">
+                                <div class="row certificate">
                                     <div class="col-12">
                                         <div class="mb-10 text-bold">Phiếu kết quả xét nghiệm/ giấy chứng nhận khỏi covid</div>
                                         <div class="uploadImage">
@@ -1030,7 +1051,15 @@
                                         <div class="mt-10"><label><input class="style-checkbox" type="checkbox" name="fields[resultType]" value="1"> Xác nhận âm tính</label></div>
                                     </div>
                                 </div>
-                                <div class="btn-submit-box text-center"> <button type="submit" class="btn btn-success">Gửi tờ khai</button> </div>
+                                <div class="row d-flex justify-content-center mt-4 mb-4">
+                                    <div class="g-recaptcha" data-sitekey="{{ env('CAPTCHA_KEY') }}"></div>
+                                    @if ($errors->has('g-recaptcha-response'))
+                                        <span class="invalid-feedback" style="display:block">
+                                            <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                                <div class="btn-submit-box text-center"> <button type="submit" class="btn btn-success" id="btn-submit">Gửi tờ khai</button> </div>
     
                             </div>
                         </div>
@@ -1333,7 +1362,7 @@
                                     </div>
                                     
                                 </div>
-                                <div class="row">
+                                <div class="row d-flex justify-content-center mt-4 mb-4">
                                     <div class="g-recaptcha" data-sitekey="{{ env('CAPTCHA_KEY') }}"></div>
                                     @if ($errors->has('g-recaptcha-response'))
                                         <span class="invalid-feedback" style="display:block">
@@ -1342,7 +1371,7 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="btn-submit-box text-center"> <button type="submit" class="btn btn-success">Gửi tờ khai</button> </div>
+                            <div class="btn-submit-box text-center"> <button type="submit" class="btn btn-success" id="btn-submit">Gửi tờ khai</button> </div>
                         </div>
                     </div>
                 </form>

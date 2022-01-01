@@ -1,0 +1,33 @@
+body {
+    font-family: GoogleSans-Regular;
+    src: '../fonts/GoogleSansTTF/GoogleSans-Regular.ttf';
+    background-color: #d4d8fc;
+}
+
+.container {
+    margin-bottom: 100px;
+}
+
+.tab-content {
+    /* border: 1px solid #1959ad; */
+    background-color: #fff;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 10px;
+}
+
+#btn-submit {
+    background: linear-gradient(
+        135deg,#1e55eb 19.57%,#058dfc 93.6%)!important;
+    color: #fff;
+    border: 0;
+    font-size: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 10px 0;
+    width: 40%;
+}
+
+.radio-lang {
+    display: none;
+}

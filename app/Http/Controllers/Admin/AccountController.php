@@ -29,10 +29,10 @@ class AccountController extends Controller
 
     function addAccountAdmin(Request $request) {
         $admin = new Admin;
-        $admin->admin_email = $request['admin_email'];
-        $admin->admin_password = $request['admin_password'];
-        $admin->admin_name = $request['admin_name'];
-        $admin->admin_phone = $request['admin_phone'];
+        $admin->admin_email = $request->admin_email;
+        $admin->admin_password = $request->admin_password;
+        $admin->admin_name = $request->admin_name;
+        $admin->admin_phone = $request->admin_phone;
         $admin->save();
 
         // $admin = Admin::created([
@@ -51,7 +51,7 @@ class AccountController extends Controller
         $i = 0;
 
         foreach($admins as $admin) {
-            $data = '<tr class="even pointer">';
+            $data .= '<tr class="even pointer">';
             $data .= '
                 <td class=" ">{{'. ++$i .'}}</td>
                 <td class=" ">{{'. $admin->admin_name .'}}</td>
@@ -64,6 +64,6 @@ class AccountController extends Controller
 
         
 
-        return $data;
+        echo $data;
     }
 }

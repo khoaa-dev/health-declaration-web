@@ -26,7 +26,7 @@ Route::get('/home', 'HomeController@index')->middleware('verified');
 // Route::get('/admin', 'AdminController@showImportantInfo')->middleware('role:admin');
 
 //admin login
-Route::get('/admin-login', 'AdminController@index');
+Route::get('/admin-login', 'AdminController@index')->name('admin-login');
 //admin Dashboard
 Route::get('/dashboard', 'AdminController@show_dashboard');
 //
@@ -40,8 +40,12 @@ Route::get('/filter-by-date', 'AdminController@filter_by_date');
 Route::get('/medicalManagement', 'Admin\MedicalDeclarationController@index');
 
 //Account management
-Route::get('/accountManagement', 'Admin\AccountController@index');
-Route::post('/accountManagement', 'Admin\AccountController@addAccountAdmin')->name('addAccountAdmin');
+Route::get('/accountManagement', 'Admin\AccountController@index')->name('accountManagement');
+Route::post('/accountManagement/addAccount', 'Admin\AccountController@addAccountAdmin')->name('accountManagement.addAccountAdmin');
+// Route::post('ajax', [
+//     'uses' => 'Admin\AccountController@addAccountAdmin',
+//     'as' => 'addAccountAdmin'
+// ]);
 
 // Route::post('/addAccountAdmin', 'Admin\AccountController@addAccountAdmin')->name('addAccountAdmin');
 
