@@ -29,6 +29,11 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('public/css/main.css')}}">
 <!--===============================================================================================-->
 </head>
+<style>
+	body {
+		font-family: Arial, Helvetica, sans-serif;
+	}
+</style>
 <body style="background-color: #666666;">
 	
 	<div class="limiter">
@@ -36,7 +41,7 @@
 			<div class="wrap-login100">
 				<form action="{{URL::to('/admin-dashboard')}}" method="post" class="login100-form validate-form">
 					{{ csrf_field() }}
-					<span class="login100-form-title p-b-43" style="font-size: 50px; color: #6675df">
+					<span class="login100-form-title p-b-43" style="font-size: 50px; color: #6675df; font-family: Arial, Helvetica, sans-serif">
 						ĐĂNG NHẬP
 					</span>
 					
@@ -64,13 +69,13 @@
 					<div class="flex-sb-m w-full p-t-3 p-b-32">
 						<div class="contact100-form-checkbox">
 							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-							<label class="label-checkbox100" for="ckb1">
+							<label class="label-checkbox100" for="ckb1" style="font-family: Arial, Helvetica, sans-serif">
 								Nhớ tài khoản
 							</label>
 						</div>
 
 						<div>
-							<a href="#" class="txt1">
+							<a href="#" class="txt1" style="font-family: Arial, Helvetica, sans-serif">
 								Quên mật khẩu?
 							</a>
 						</div>

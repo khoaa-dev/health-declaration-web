@@ -9,8 +9,10 @@
 <div class="container mb-100">
     <div class="row">
         <div class="col-12 mt-4 p-0">
-            <h1 class="text-center mtb-20 w-100" style="color: #2f3492">Tờ khai y tế/Vietnam Health Declaration</h1><br>
-            <ul class="nav nav-tabs nav-tab tabs d-flex text-center col-12" style="background: #eaeaea"> 
+            <h1 class="text-center mtb-20 w-100" style="color: #2f3492; font-family: GoogleSans-Regular;
+            src: '../fonts/GoogleSansTTF/GoogleSans-Regular.ttf'; font-size: 50px">Tờ khai y tế/Vietnam Health Declaration</h1><br>
+            <ul class="nav nav-tabs nav-tab tabs d-flex text-center col-12" style="background: #eaeaea; font-family: GoogleSans-Regular;
+            src: '../fonts/GoogleSansTTF/GoogleSans-Regular.ttf';"> 
                 <li class="tab-item active col-4"><a data-toggle="tab" href="#tab-9-3" data-case="HDLocal">Khai báo di chuyển nội địa<br>For domestic move declaration</a></li>
                 <li class="tab-item col-4"><a data-toggle="tab" href="#tab-9-1" data-case="HDPassenger">Cho người nhập cảnh<br>Entry declaration</a></li>
                 <li class="tab-item col-4"><a data-toggle="tab" href="#tab-9-2" data-case="HDHealth">Khai báo toàn dân<br>For domestic guests</a></li>

@@ -14,17 +14,19 @@ class MedicalDeclarationController extends Controller
         $domesticGuests = DB::table('domestic_guest_declarations')
                                 ->join('users', 'domestic_guest_declarations.idUser', '=', 'users.id')
                                 ->select('users.fullName', 'domestic_guest_declarations.created_at')
+                                ->orderBy('created_at', 'desc')
                                 ->paginate(10);
 
         $domesticMoves = DB::table('domestic_move_declarations')
                                 ->join('users', 'domestic_move_declarations.idUser', '=', 'users.id')
                                 ->select('users.fullName', 'domestic_move_declarations.created_at')
+                                ->orderBy('created_at', 'desc')
                                 ->paginate(10);
         $entrys = DB::table('entry_declarations')
-        ->join('users', 'entry_declarations.idUser', '=', 'users.id')
-        ->select('users.fullName', 'entry_declarations.created_at')
-        ->orderBy('created_at', 'desc')
-        ->paginate(10);
+                                ->join('users', 'entry_declarations.idUser', '=', 'users.id')
+                                ->select('users.fullName', 'entry_declarations.created_at')
+                                ->orderBy('created_at', 'desc')
+                                ->paginate(10);
 
         $i1 = 0;
         $i2 = 0;

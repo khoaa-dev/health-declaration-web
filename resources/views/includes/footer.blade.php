@@ -6,11 +6,13 @@
 
       <div class="cta d-block d-md-flex align-items-center px-5">
         <div>
-          <h2 class="mb-0">BẠN KHÔNG THỂ KHAI BÁO?</h2>
+          <h2 class="mb-0" style="font-family: GoogleSans-Regular;
+          src: '../fonts/GoogleSansTTF/GoogleSans-Regular.ttf';">BẠN KHÔNG THỂ KHAI BÁO?</h2>
           <h3 class="text-dark">Đừng lo lắng!</h3>
         </div>
         <div class="ml-auto">
-          <a href="#" class="btn btn-dark rounded-0 py-3 px-5">Liên hệ ngay với chúng tôi</a>
+          <a href="#" class="btn btn-dark rounded-0 py-3 px-5" style="font-family: GoogleSans-Regular;
+          src: '../fonts/GoogleSansTTF/GoogleSans-Regular.ttf';">Liên hệ ngay với chúng tôi</a>
         </div>
       </div>
       <div class="row pb-5">

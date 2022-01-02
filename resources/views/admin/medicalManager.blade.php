@@ -105,11 +105,11 @@
                                 </thead>
         
                                 <tbody class="text-center" style="font-size: 16px">
-                                    @foreach ($domesticGuests as $domesticGuest)
+                                    @foreach ($domesticMoves as $domesticMove)
                                         <tr class="even pointer">
                                             <td class=" ">{{ ++$i1 }}</td>
-                                            <td class=" ">{{ $domesticGuest->fullName }}</td>
-                                            <td class=" ">{{ $domesticGuest->created_at }}</td>
+                                            <td class=" ">{{ $domesticMove->fullName }}</td>
+                                            <td class=" ">{{ $domesticMove->created_at }}</td>
                                             <td class=" last"><a href="#">Xem chi tiết</a>
                                             </td>
                                         </tr>

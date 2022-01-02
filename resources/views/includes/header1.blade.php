@@ -22,6 +22,7 @@
     .logo img{
         width: 80px;
         height: 80px;
+        box-sizing: border-box;
         transform: scaleX(-1);
     }
     .logo h1{
